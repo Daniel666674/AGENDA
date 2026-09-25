@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Precios · BlackScale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+/* ============================================================
+   BLACKSCALE · Lista de precios
+   PANTONE 4102 #551C25 · Black #11110F · 7555 #D19C15 · Cool Gray 1 #D7D2CB
+   Juana Light → Cormorant Garamond · Poppins
+   ============================================================ */
+:root{
+  --caoba:#551C25; --oro:#D19C15; --negro:#11110F; --gris:#D7D2CB;
+
+  --bg:#D7D2CB; --bg-deep:#C9C3BA; --surface:#E4E0DB; --raised:#EFEDE9;
+  --line:#BDB5AA; --line-soft:#CBC4BA;
+  --tx:#11110F; --tx-dim:#5C564E; --tx-faint:#847D73;
+  --accent:#551C25; --accent-fill:#D19C15; --accent-on-fill:#11110F;
+  --field:#551C25; --field-tx:#EFEDE9;
+  --ring:0 0 0 3px rgba(85,28,37,.28);
+
+  --ui:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11110F; --bg-deep:#0A0A09; --surface:#1A1917; --raised:#22201D;
+    --line:#312D29; --line-soft:#26231F;
+    --tx:#D7D2CB; --tx-dim:#9A938A; --tx-faint:#736C64;
+    --accent:#D19C15; --field:#551C25; --field-tx:#E8E4DF;
+    --ring:0 0 0 3px rgba(209,156,21,.32);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11110F; --bg-deep:#0A0A09; --surface:#1A1917; --raised:#22201D;
+  --line:#312D29; --line-soft:#26231F;
+  --tx:#D7D2CB; --tx-dim:#9A938A; --tx-faint:#736C64;
+  --accent:#D19C15; --field:#551C25; --field-tx:#E8E4DF;
+  --ring:0 0 0 3px rgba(209,156,21,.32);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; font-variant-numeric:lining-nums; background:var(--bg); color:var(--tx); font-family:var(--ui); font-weight:300; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased}
+::selection{background:var(--accent-fill); color:var(--accent-on-fill)}
+:focus-visible{outline:none; box-shadow:var(--ring)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto!important}}
+b,strong{font-weight:500}
+
+/* barra */
+.topbar{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw); margin:0 auto; padding:11px 24px; display:flex; align-items:center; gap:14px}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:inherit}
+.mark{width:36px; height:36px; flex-shrink:0; border:1px solid var(--line); background:var(--field); color:var(--field-tx); display:grid; place-items:center}
+.mark svg{width:20px; height:20px; display:block}
+.wordmark{display:flex; flex-direction:column; line-height:1.08}
+.wordmark b{font-weight:600; font-size:12.5px; letter-spacing:.235em; text-transform:uppercase}
+.wordmark span{font-size:9.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--tx-faint); font-weight:400}
+.sp{flex:1}
+.nav{display:flex; gap:2px}
+.nav a{font-size:12px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--tx-dim); padding:7px 11px; font-weight:500; border:1px solid transparent}
+.nav a:hover{color:var(--accent); border-color:var(--line)}
+.iconbtn{border:1px solid var(--line); background:var(--surface); color:var(--tx-dim); width:34px; height:34px; display:grid; place-items:center; cursor:pointer; padding:0; transition:.16s}
+.iconbtn:hover{border-color:var(--accent); color:var(--accent)}
+.iconbtn svg{width:16px; height:16px}
+
+.shell{max-width:var(--maxw); margin:0 auto; padding:0 24px 90px}
+
+/* portada */
+.hero{position:relative; padding:64px 0 48px; overflow:hidden}
+.flor{position:absolute; right:-80px; top:-40px; width:440px; height:440px; opacity:.06; color:var(--accent); pointer-events:none}
+.eyebrow{font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin:0 0 18px}
+h1{font-family:var(--display); font-weight:300; font-size:clamp(3rem,8vw,5.2rem); line-height:1; letter-spacing:-.015em; margin:0 0 20px; max-width:14ch}
+h1 em,h2 em{font-style:italic; color:var(--accent)}
+.lede{font-size:19px; line-height:1.62; color:var(--tx-dim); max-width:52ch; margin:0}
+.lede strong{color:var(--tx)}
+.facts{display:flex; flex-wrap:wrap; margin:36px 0 0; border:1px solid var(--line); background:var(--surface)}
+.facts div{flex:1 1 180px; padding:15px 18px; border-right:1px solid var(--line-soft)}
+.facts div:last-child{border-right:0}
+.facts i{display:block; font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin-bottom:3px}
+.facts b{font-size:15px}
+
+/* secciones */
+.sec{padding-top:64px; scroll-margin-top:70px}
+.sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-bottom:22px; border-bottom:1px solid var(--line); margin-bottom:28px}
+.sec-n{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin:0 0 8px}
+h2{font-family:var(--display); font-weight:300; font-size:clamp(2.2rem,5vw,3.2rem); line-height:1.05; margin:0}
+.sec-head p{color:var(--tx-dim); max-width:46ch; margin:0; font-size:15.5px}
+
+/* producto principal */
+.prod{border:1px solid var(--line); background:var(--surface); margin-bottom:28px}
+.prod-top{display:grid; grid-template-columns:1fr auto; gap:24px; padding:26px 28px; border-bottom:1px solid var(--line)}
+.prod-top h3{font-family:var(--display); font-weight:400; font-size:clamp(1.9rem,4vw,2.5rem); line-height:1.05; margin:0 0 6px}
+.prod-top .for{color:var(--tx-dim); font-size:15px; margin:0; max-width:60ch}
+.setup{border:1px solid var(--line); background:var(--raised); padding:12px 18px; text-align:right; align-self:start; min-width:200px}
+.setup i{display:block; font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500}
+.setup b{display:block; font-family:var(--display); font-size:30px; font-weight:400; line-height:1.15}
+.setup small{display:block; font-size:12px; color:var(--tx-dim); line-height:1.4; margin-top:2px}
+
+/* matriz de lo que incluye */
+.matrix-wrap{overflow-x:auto}
+.matrix{width:100%; border-collapse:collapse; min-width:720px}
+.matrix th,.matrix td{padding:12px 16px; border-bottom:1px solid var(--line-soft); text-align:center; vertical-align:middle; font-size:14.5px}
+.matrix tr > :first-child{text-align:left; width:38%; color:var(--tx); position:sticky; left:0; background:var(--surface); z-index:1}
+.matrix thead th{padding:20px 16px 18px; vertical-align:bottom; border-bottom:1px solid var(--line)}
+.matrix thead th:first-child{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500}
+.tier-name{display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--tx-dim)}
+.tier-price{font-variant-numeric:lining-nums; display:block; font-family:var(--display); font-size:34px; font-weight:400; line-height:1.1; margin-top:4px; color:var(--tx)}
+.tier-price small{font-family:var(--ui); font-size:12.5px; font-weight:300; color:var(--tx-dim)}
+.tier-note{display:block; font-size:12px; color:var(--tx-faint); font-weight:400; margin-top:2px}
+.matrix .rec{background:color-mix(in srgb, var(--accent-fill) 9%, var(--surface))}
+.matrix thead .rec{background:var(--field); color:var(--field-tx); position:relative}
+.matrix thead .rec .tier-name,.matrix thead .rec .tier-price,.matrix thead .rec .tier-price small,.matrix thead .rec .tier-note{color:var(--field-tx)}
+.badge{display:inline-block; margin-bottom:8px; background:var(--accent-fill); color:var(--accent-on-fill); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; padding:3px 10px; white-space:nowrap}
+
+/* planes en tarjetas (celular) */
+.tiers{display:none}
+.tier{border-top:1px solid var(--line)}
+.tier-h{padding:18px 18px 14px}
+.tier-h .tier-name{color:var(--tx-dim)}
+.tier.rec .tier-h{background:var(--field); color:var(--field-tx)}
+.tier.rec .tier-h .tier-name,.tier.rec .tier-h .tier-price,.tier.rec .tier-h .tier-price small,.tier.rec .tier-h .tier-note{color:var(--field-tx)}
+.tier ul{list-style:none; margin:0; padding:6px 18px 14px}
+.tier li{display:flex; gap:10px; align-items:flex-start; padding:7px 0; border-bottom:1px solid var(--line-soft); font-size:14px; line-height:1.4}
+.tier li:last-child{border-bottom:0}
+.tier li .v{flex-shrink:0; width:18px; margin-top:1px}
+.tier li .v svg{width:16px; height:16px; color:var(--accent-fill)}
+.tier li.off{color:var(--tx-faint)}
+.tier li.off .lbl{text-decoration:line-through; text-decoration-color:var(--line)}
+.tier li b{font-weight:500; margin-left:auto; text-align:right; padding-left:10px}
+.tier li.grp{border:0; padding:12px 0 4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500}
+@media (max-width:760px){
+  .matrix-wrap{display:none}
+  .tiers{display:block}
+}
+.matrix .grp td{background:var(--raised); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; padding:9px 16px; text-align:left}
+.matrix .grp td:first-child{background:var(--raised)}
+.ok svg{width:17px; height:17px; color:var(--accent-fill); vertical-align:middle}
+.no{color:var(--tx-faint)}
+.txt{font-size:13.5px; color:var(--tx)}
+.matrix tr:last-child td{border-bottom:0}
+.feat small{display:block; color:var(--tx-faint); font-size:12.5px; line-height:1.4}
+.prod-foot{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); border-top:1px solid var(--line); background:var(--raised)}
+.prod-foot > div{padding:16px 22px; border-right:1px solid var(--line-soft)}
+.prod-foot > div:last-child{border-right:0}
+.prod-foot i{display:block; font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin-bottom:6px}
+.prod-foot ul{margin:0; padding-left:18px; font-size:14px; color:var(--tx-dim)}
+.prod-foot li{margin-bottom:3px}
+.prod-foot li::marker{color:var(--accent-fill)}
+
+/* módulos */
+.cat{margin:34px 0 14px; display:flex; align-items:baseline; gap:14px}
+.cat h3{font-family:var(--display); font-weight:400; font-size:26px; margin:0}
+.cat span{font-size:13.5px; color:var(--tx-faint)}
+.mods{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:1px; padding:1px}
+.mod{background:var(--surface); box-shadow:0 0 0 1px var(--line); padding:22px 22px 18px; display:flex; flex-direction:column; gap:12px}
+.mod-h h4{font-family:var(--display); font-weight:400; font-size:24px; line-height:1.1; margin:0 0 3px}
+.mod-h p{margin:0; font-size:13.5px; color:var(--tx-faint)}
+.mod-price{display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line-soft); background:var(--raised)}
+.mod-price div{padding:9px 12px}
+.mod-price div + div{border-left:1px solid var(--line-soft)}
+.mod-price i{display:block; font-style:normal; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500}
+.mod-price b{font-size:15px; font-variant-numeric:tabular-nums}
+.inc{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
+.inc li{display:flex; gap:9px; font-size:14px; line-height:1.45; color:var(--tx-dim)}
+.inc svg{flex-shrink:0; width:15px; height:15px; margin-top:3px; color:var(--accent-fill)}
+.mod-note{margin-top:auto; font-size:12.5px; color:var(--tx-faint); border-top:1px solid var(--line-soft); padding-top:10px}
+
+/* paquetes */
+.packs{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
+.pack{background:var(--surface); padding:24px 22px; display:flex; flex-direction:column; gap:14px}
+.pack.hi{background:var(--field); color:var(--field-tx)}
+.pack.hi .muted,.pack.hi .anchor,.pack.hi .inc li{color:color-mix(in srgb, var(--field-tx) 78%, transparent)}
+.pack h4{font-family:var(--display); font-weight:400; font-size:28px; line-height:1.05; margin:0}
+.pack .muted{font-size:13.5px; color:var(--tx-faint); margin:-8px 0 0}
+.pack-price b{display:block; font-family:var(--display); font-size:34px; font-weight:400; line-height:1.1}
+.pack-price span{font-size:13px}
+.anchor{font-size:12.5px; color:var(--tx-faint)}
+.anchor s{text-decoration-color:var(--accent-fill); text-decoration-thickness:1.5px}
+.save{align-self:flex-start; background:var(--accent-fill); color:var(--accent-on-fill); font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:3px 9px}
+
+/* condiciones */
+.terms{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
+.term{background:var(--surface); padding:20px 22px}
+.term h4{font-size:14px; font-weight:600; margin:0 0 6px; display:flex; gap:10px; align-items:center}
+.term h4 span{width:24px; height:24px; display:grid; place-items:center; border:1px solid var(--line); color:var(--accent); font-family:var(--display); font-size:15px; font-weight:500}
+.term p{margin:0; font-size:14.5px; color:var(--tx-dim)}
+.tip{display:flex; gap:14px; padding:16px 18px; margin:24px 0 0; border:1px solid var(--line); border-left:3px solid var(--accent-fill); background:var(--surface)}
+.tip p{margin:0; font-size:14.5px; color:var(--tx-dim)}
+.tip b{color:var(--tx)}
+
+.foot{border-top:1px solid var(--line); margin-top:64px; padding-top:28px; display:flex; gap:22px; justify-content:space-between; flex-wrap:wrap; align-items:center}
+.foot p{font-size:13px; color:var(--tx-faint); max-width:60ch; margin:0}
+
+@media (max-width:760px){
+  .nav{display:none}
+  .shell{padding:0 16px 70px}
+  .topbar-in{padding:10px 16px}
+  .prod-top{grid-template-columns:1fr; padding:22px 18px}
+  .setup{text-align:left}
+  .matrix th,.matrix td{padding:10px 12px}
+  .mods{grid-template-columns:1fr}
+  .facts div{flex-basis:50%; border-bottom:1px solid var(--line-soft)}
+}
+@media print{
+  .topbar{display:none}
+  body{background:#fff; color:#11110F; font-size:10.5pt}
+  :root{--bg:#fff; --surface:#fff; --raised:#f6f4f1}
+  .prod,.mod,.pack,.term{break-inside:avoid}
+  .sec{padding-top:28px}
+  .matrix{min-width:0}
+  .flor{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 2.6v18.8" stroke="currentColor" stroke-width="1.5"/><text x="13.2" y="18.4" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="19" font-weight="500" fill="currentColor">B</text></svg></span>
+      <span class="wordmark"><b>BlackScale</b><span>Lista de precios</span></span>
+    </a>
+    <span class="sp"></span>
+    <nav class="nav">
+      <a href="#principales">Principales</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#condiciones">Condiciones</a>
+    </nav>
+    <button class="iconbtn" id="printBtn" type="button" title="Imprimir o guardar PDF" aria-label="Imprimir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z" stroke-linejoin="round"/></svg></button>
+    <button class="iconbtn" id="themeBtn" type="button" title="Cambiar tema" aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main class="shell" id="top">
+  <section class="hero">
+    <svg class="flor" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+      <path d="M200 20c-70 60-140 110-140 190 0 60 46 100 100 100s100-40 100-100c0-80-70-130-140-190" stroke="currentColor" stroke-width="1.1"/>
+      <ellipse cx="200" cy="200" rx="150" ry="92" transform="rotate(-28 200 200)" stroke="currentColor" stroke-width="1.1"/>
+      <ellipse cx="200" cy="200" rx="150" ry="92" transform="rotate(28 200 200)" stroke="currentColor" stroke-width="1.1"/>
+    </svg>
+    <p class="eyebrow">BlackScale · Soluciones digitales para negocios locales · Colombia</p>
+    <h1>Precios y <em>planes</em></h1>
+    <p class="lede">Software hecho a la medida de cada negocio, con <strong>configuración, capacitación y soporte por WhatsApp</strong> incluidos. Un pago de implementación y una mensualidad fija. Sin comisiones por venta.</p>
+    <div class="facts">
+      <div><i>Moneda</i><b>Pesos colombianos (COP)</b></div>
+      <div><i>Impuestos</i><b>Valores + IVA 19%</b></div>
+      <div><i>Plan anual</i><b>12 meses por el precio de 10</b></div>
+      <div><i>Vigencia</i><b>2026</b></div>
+    </div>
+  </section>
+
+  <section class="sec" id="principales">
+    <div class="sec-head">
+      <div><p class="sec-n">01 · Productos principales</p><h2>Lo que <em>incluye</em> cada plan</h2></div>
+      <p>Tres niveles por producto. El plan Pro es el que recomendamos para la mayoría de los negocios.</p>
+    </div>
+    <div id="mainProducts"></div>
+  </section>
+
+  <section class="sec" id="modulos">
+    <div class="sec-head">
+      <div><p class="sec-n">02 · Módulos</p><h2>Soluciones por <em>necesidad</em></h2></div>
+      <p>Se contratan solos o se suman a un producto principal. La mensualidad varía según el tamaño del negocio.</p>
+    </div>
+    <div id="modules"></div>
+  </section>
+
+  <section class="sec" id="paquetes">
+    <div class="sec-head">
+      <div><p class="sec-n">03 · Paquetes</p><h2>Todo junto, <em>mejor precio</em></h2></div>
+      <p>Combinaciones pensadas por tipo de negocio. Frente a contratar cada módulo por separado.</p>
+    </div>
+    <div class="packs" id="packs"></div>
+  </section>
+
+  <section class="sec" id="condiciones">
+    <div class="sec-head">
+      <div><p class="sec-n">04 · Condiciones</p><h2>Cómo <em>trabajamos</em></h2></div>
+      <p>Lo que cubre la implementación, cómo se paga y qué garantizamos.</p>
+    </div>
+    <div class="terms" id="terms"></div>
+    <div class="tip"><p><b>Mensajes de WhatsApp automáticos:</b> Meta cobra cada conversación que se envía de forma automática. Los planes incluyen una cantidad mensual; por encima de ella se cobra el costo del mensaje sin recargo.</p></div>
+  </section>
+
+  <footer class="foot">
+    <a class="brand" href="#top" style="opacity:.8">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 2.6v18.8" stroke="currentColor" stroke-width="1.5"/><text x="13.2" y="18.4" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="19" font-weight="500" fill="currentColor">B</text></svg></span>
+      <span class="wordmark"><b>BlackScale</b><span>blackscale.consulting</span></span>
+    </a>
+    <p>Precios de referencia en pesos colombianos, más IVA. Pueden ajustarse según el tamaño del negocio y el alcance acordado en la propuesta formal.</p>
+  </footer>
+</main>
+
+<script>
+/* ─────────────────────────────────────────────────────────────
+   DATOS — edita aquí los precios y lo que incluye cada producto
+   ───────────────────────────────────────────────────────────── */
+const PRINCIPALES = [
+  {
+    nombre: 'Agenda de citas',
+    para: 'Veterinarias, spas, barberías, nail spas, consultorios, odontología, estética y cualquier negocio que trabaja con citas.',
+    setup: '$600.000',
+    setupNota: 'Configuración, marca y capacitación',
+    planes: [
+      { nombre: 'Esencial', precio: '$149.000', nota: '1–2 profesionales' },
+      { nombre: 'Pro', precio: '$249.000', nota: '3–6 profesionales', rec: true },
+      { nombre: 'Premium', precio: '$399.000', nota: 'Ilimitado · multisede' },
+    ],
+    filas: [
+      ['g', 'Agenda'],
+      ['Profesionales', 'Hasta 2', 'Hasta 6', 'Ilimitados'],
+      ['Sedes', '1', '1', 'Varias'],
+      ['Vistas día, semana, mes y lista · arrastrar y soltar', 1, 1, 1],
+      ['Horarios por profesional, descansos y bloqueos', 1, 1, 1],
+      ['Citas recurrentes y aviso de cruces', 1, 1, 1],
+      ['g', 'Clientes'],
+      ['Reserva en línea 24/7', 1, 1, 1, 'Link para Instagram, Google y WhatsApp'],
+      ['Ficha de cliente con historial y notas', 1, 1, 1],
+      ['Anticipo al reservar en línea', 0, 1, 1],
+      ['Lista de espera', 0, 1, 1],
+      ['g', 'WhatsApp y automatizaciones'],
+      ['Recordatorio por WhatsApp en un clic', 1, 1, 1],
+      ['Recordatorios automáticos 48 h y 2 h', 0, 1, 1, 'Con confirmación automática'],
+      ['Recordatorio para volver y clientes inactivos', 0, 1, 1],
+      ['Pedido de reseñas en Google', 0, 1, 1],
+      ['Mensajes automáticos incluidos al mes', '—', '300', '1.000'],
+      ['g', 'Reportes y soporte'],
+      ['Reportes de ingresos, servicios y equipo', 'Básicos', 'Completos', 'Completos + exportación'],
+      ['Resumen diario y reporte semanal al dueño', 0, 1, 1],
+      ['Soporte por WhatsApp', 'Horario hábil', 'Horario hábil', 'Prioritario'],
+      ['Sesión mensual de revisión', 0, 0, 1],
+    ],
+    incluye: ['Carga de servicios, precios, equipo y horarios', 'Colores, logo y tipografía del negocio', 'Capacitación de 1 hora al equipo', 'Afiche con QR para reservas'],
+    ideal: 'Negocios con agenda llena que pierden citas por inasistencias o dependen de contestar el teléfono.',
+  },
+  {
+    nombre: 'Pedidos por QR',
+    para: 'Restaurantes, cafés, panaderías, bares, gastrobares y comida rápida. El cliente pide desde la mesa y el pedido llega a cocina.',
+    setup: '$900.000',
+    setupNota: 'Incluye QR en acrílico para las mesas',
+    planes: [
+      { nombre: 'Esencial', precio: '$249.000', nota: 'Hasta 15 mesas' },
+      { nombre: 'Pro', precio: '$399.000', nota: 'Hasta 30 mesas', rec: true },
+      { nombre: 'Premium', precio: '$599.000', nota: 'Ilimitado · multisede' },
+    ],
+    filas: [
+      ['g', 'Carta y pedidos'],
+      ['Mesas con código QR propio', 'Hasta 15', 'Hasta 30', 'Ilimitadas'],
+      ['Carta digital con fotos, opciones y adiciones', 1, 1, 1],
+      ['Pedido desde la mesa directo a cocina', 1, 1, 1],
+      ['Llamar al mesero y pedir la cuenta', 1, 1, 1, 'Propina voluntaria · Nequi, Daviplata, tarjeta, efectivo'],
+      ['Seguimiento del pedido para el cliente', 1, 1, 1],
+      ['Varias cartas (desayuno, almuerzo, bar)', 0, 1, 1],
+      ['Dividir la cuenta', 0, 1, 1],
+      ['g', 'Operación'],
+      ['Tablero de cocina en vivo con cronómetros', 1, 1, 1],
+      ['Mapa de mesas y cuentas abiertas', 1, 1, 1],
+      ['Productos agotados en un clic', 1, 1, 1],
+      ['Inventario de insumos con alertas', 0, 0, 1],
+      ['Domicilios propios', 0, 0, 1],
+      ['Varias sedes', 0, 0, 1],
+      ['g', 'Reportes y soporte'],
+      ['Reportes de ventas', 'Del día', 'Histórico completo', 'Completo por sede'],
+      ['Platos más vendidos y horas pico', 0, 1, 1],
+      ['Soporte por WhatsApp', 'Horario hábil', 'Horario hábil', 'Prioritario'],
+    ],
+    incluye: ['Carga de la carta con fotos, precios y opciones', 'QR en acrílico para hasta 15 mesas', 'Configuración de mesas y zonas', 'Capacitación a meseros y cocina'],
+    ideal: 'Locales con mesas llenas en horas pico, donde tomar el pedido es el cuello de botella.',
+  },
+  {
+    nombre: 'Automatizaciones WhatsApp',
+    para: 'Complemento para cualquier producto. Mensajes que salen solos en el momento justo: recuerdan, confirman, llenan huecos y traen clientes de vuelta.',
+    setup: '$300.000',
+    setupNota: 'Plantillas y aprobación de mensajes',
+    planes: [
+      { nombre: 'Esencial', precio: '+$99.000', nota: 'Complemento mensual' },
+      { nombre: 'Pro', precio: 'Incluido', nota: 'En el plan Pro', rec: true },
+      { nombre: 'Premium', precio: 'Incluido', nota: 'En el plan Premium' },
+    ],
+    filas: [
+      ['g', 'Automatizaciones'],
+      ['Confirmación al reservar o pedir', 1, 1, 1],
+      ['Recordatorios 48 h y 2 h con confirmación', 1, 1, 1],
+      ['Lista de espera automática', 1, 1, 1],
+      ['Recordatorio para volver', 1, 1, 1],
+      ['Recuperar clientes inactivos', 1, 1, 1],
+      ['Reseñas en Google (sólo 4–5 estrellas)', 1, 1, 1],
+      ['Resumen diario y reporte semanal', 1, 1, 1],
+      ['Mensajes incluidos al mes', '300', '300', '1.000'],
+    ],
+    incluye: ['Redacción de plantillas con el tono del negocio', 'Aprobación de plantillas ante Meta', 'Número de WhatsApp Business verificado'],
+    ideal: 'Negocios con inasistencias frecuentes o clientes que no vuelven.',
+  },
+];
+
+const MODULOS = [
+  { cat: 'Conseguir clientes', sub: 'Presencia y ventas', items: [
+    { n: 'Página "todo en uno"', p: 'Cualquier negocio con Instagram', s: '$900.000–$1.800.000', m: '$69.000', i: ['Sitio con servicios, precios, mapa y horarios', 'Botón de WhatsApp y enlace para Instagram', 'Reseñas y galería de fotos', 'Dominio propio (.com / .co) al costo', 'Cambios de contenido incluidos'], nota: 'El setup varía según páginas y secciones.' },
+    { n: 'Catálogo + pedidos WhatsApp', p: 'Panaderías, floristerías, tiendas, repostería, licoreras', s: '$700.000', m: '$149.000–$249.000', i: ['Catálogo con fotos, variantes y precios', 'Carrito que llega armado al WhatsApp', 'Domicilio o recogida en tienda', 'Tablero de pedidos y agotados', 'Hasta 100 productos · ilimitado en el plan alto'] },
+    { n: 'Cotizador instantáneo', p: 'Carpinterías, vidrierías, impresión, eventos, remodelación', s: '$1.200.000–$2.500.000', m: '$99.000', i: ['Preguntas guiadas según el servicio', 'Precio estimado al instante', 'Cotización enviada por WhatsApp', 'Registro de prospectos'], nota: 'El setup depende de la complejidad de las fórmulas.' },
+    { n: 'Gift cards', p: 'Spas, restaurantes, barberías, tiendas', s: '$350.000', m: '$79.000', i: ['Venta de bonos por enlace', 'Código QR para redimir', 'Control de saldo y vencimiento', 'Diseños para fechas especiales'] },
+  ]},
+  { cat: 'Operar mejor', sub: 'Menos llamadas, menos errores', items: [
+    { n: 'Taller / servicio técnico', p: 'Mecánica, motos, celulares, electrodomésticos, sastrería', s: '$700.000', m: '$179.000–$279.000', i: ['Orden de trabajo con fotos de ingreso', 'Seguimiento del estado por enlace', 'Aprobación de cotización por WhatsApp', 'Aviso automático de "listo para recoger"'] },
+    { n: 'Reserva de espacios', p: 'Canchas sintéticas, pádel, salones, coworking, fincas', s: '$800.000', m: '$199.000–$349.000', i: ['Grilla de espacios por hora', 'Reserva en línea con anticipo', 'Reservas fijas semanales', 'Tarifas por franja horaria'], nota: 'Mensualidad según cantidad de espacios.' },
+    { n: 'Turnos en fila + pantalla', p: 'Laboratorios, notarías, EPS pequeñas, barberías sin cita', s: '$800.000', m: '$179.000', i: ['Turno por QR desde el celular', 'Aviso por WhatsApp cuando se acerca el turno', 'Pantalla para TV con el turno actual', 'Tiempos de espera promedio'] },
+    { n: 'Inventario con alertas', p: 'Droguerías, ferreterías, minimercados, bares', s: '$700.000', m: '$149.000', i: ['Existencias por producto', 'Alerta de stock bajo', 'Pedido sugerido al proveedor por WhatsApp', 'Historial de entradas y salidas'] },
+    { n: 'Domicilios propios', p: 'Restaurantes, droguerías, licoreras con mensajero', s: '$600.000', m: '$149.000', i: ['Asignación de pedidos al domiciliario', 'Estado "va en camino" para el cliente', 'Cuadre de caja por domiciliario', 'Tiempos de entrega'] },
+    { n: 'Turnos y checklist del personal', p: 'Restaurantes, cafés, gimnasios, franquicias pequeñas', s: '$500.000', m: '$119.000', i: ['Marcación de entrada y salida por QR', 'Programación semanal de turnos', 'Checklist de apertura y cierre con fotos', 'Novedades entre turnos'] },
+    { n: 'Cierre de caja + WhatsApp', p: 'Cualquier negocio con caja', s: '$400.000', m: '$99.000', i: ['Ventas por medio de pago', 'Registro de gastos del día', 'Diferencias de caja', 'Resumen diario al dueño por WhatsApp'] },
+    { n: 'Fiado / cartera', p: 'Tiendas de barrio, ferreterías, distribuidores', s: '$350.000', m: '$89.000', i: ['Saldo por cliente', 'Registro de abonos', 'Recordatorio de cobro amable por WhatsApp', 'Reporte de cartera vencida'] },
+  ]},
+  { cat: 'Fidelizar', sub: 'Que vuelvan y compren más', items: [
+    { n: 'Tarjeta de fidelización', p: 'Cafés, barberías, lavaderos, heladerías, panaderías', s: '$350.000', m: '$99.000', i: ['Sellos digitales por QR en caja', 'Premios configurables', 'Beneficio de cumpleaños', 'Mensajes para clientes que no vuelven'] },
+    { n: 'Membresías y clases', p: 'Gimnasios, yoga, pilates, crossfit, academias', s: '$900.000', m: '$249.000–$399.000', i: ['Clases con cupos y lista de espera', 'Paquetes de clases y membresías', 'Ingreso con QR en la puerta', 'Aviso de vencimiento por WhatsApp'], nota: 'Mensualidad según miembros activos.' },
+    { n: 'Planes con cobro recurrente', p: 'Lavaderos, barberías, spas, servicios mensuales', s: '$500.000', m: '$139.000', i: ['Planes mensuales ilimitados o por usos', 'Control de servicios usados', 'Recordatorio de renovación', 'Reporte de ingresos recurrentes'] },
+    { n: 'Encuestas NPS + reseñas', p: 'Todos los negocios', s: '$300.000', m: '$79.000', i: ['Encuesta por QR o WhatsApp', 'Clientes felices van a Google', 'Quejas llegan en privado al dueño', 'Reporte mensual de satisfacción'] },
+    { n: 'CRM / campañas WhatsApp', p: 'Restaurantes, bares, tiendas', s: '$700.000', m: '$179.000 + mensajes', i: ['Base de clientes segmentada', 'Campañas listas para enviar', 'Club de cumpleaños', 'Resultados por campaña'] },
+    { n: 'Historia clínica / ficha', p: 'Veterinarias, odontología, estética, fisioterapia', s: '$800.000', m: '+$129.000 sobre la Agenda', i: ['Notas por consulta', 'Fotos antes y después', 'Consentimiento firmado digital', 'Recordatorio de vacunas y controles'] },
+  ]},
+  { cat: 'Sectores especializados', sub: 'Negocios con más operación', items: [
+    { n: 'Jardín infantil / academia', p: 'Jardines, academias, escuelas deportivas', s: '$1.200.000', m: '$299.000–$499.000', i: ['Pensiones y estado de pagos', 'Asistencia diaria', 'Circulares a padres por WhatsApp', 'Ficha de cada estudiante'], nota: 'Mensualidad según número de estudiantes.' },
+    { n: 'Boletería para eventos', p: 'Bares con música en vivo, teatros, eventos locales', s: '$500.000', m: '$119.000 o $1.500 por boleta', i: ['Venta de boletas en línea', 'Boleta con QR', 'Control de ingreso en puerta', 'Límite de aforo'] },
+    { n: 'Pedidos B2B / mayoristas', p: 'Distribuidoras, panaderías que surten tiendas', s: '$2.000.000–$4.000.000', m: '$349.000–$599.000', i: ['Catálogo con precios por volumen', 'Pedido semanal del tendero', 'Rutas de entrega por día', 'Cartera por cliente'] },
+    { n: 'Propiedad horizontal', p: 'Administradores de conjuntos y edificios', s: '$1.200.000', m: '$4.000–$6.000 por apto', i: ['Reserva de zonas comunes', 'Comunicados a residentes', 'PQRS con seguimiento', 'Registro de visitantes con QR'] },
+    { n: 'Alquiler de equipos', p: 'Sillas y mesas, motos, bicis, trajes, maquinaria', s: '$800.000', m: '$199.000–$299.000', i: ['Calendario de disponibilidad por ítem', 'Depósitos y garantías', 'Entrega y devolución con fotos', 'Contrato digital'] },
+  ]},
+];
+
+const PAQUETES = [
+  { n: 'Negocio Digital', d: 'Para empezar con todo', inc: ['Página "todo en uno"', 'Agenda o Catálogo WhatsApp (Pro)', 'Tarjeta de fidelización'], s: '$1.500.000', m: '$349.000', antes: '~$2.000.000 + $450.000/mes', ahorro: 'Ahorra ~$100.000/mes' },
+  { n: 'Restaurante Completo', d: 'Restaurantes, cafés y bares', inc: ['Página "todo en uno"', 'Pedidos por QR · Pro', 'Tarjeta de fidelización', 'Cierre de caja + WhatsApp'], s: '$2.200.000', m: '$549.000', antes: '~$2.900.000 + $700.000/mes', ahorro: 'Ahorra ~$150.000/mes', hi: true },
+  { n: 'Salud', d: 'Veterinarias, odontología, consultorios', inc: ['Agenda de citas · Pro', 'Historia clínica / ficha', 'Automatizaciones WhatsApp'], s: '$1.500.000', m: '$449.000', antes: '~$1.700.000 + $480.000/mes', ahorro: 'Ahorra ~$30.000/mes' },
+  { n: 'Gimnasio', d: 'Gimnasios y estudios', inc: ['Membresías y clases', 'Tarjeta de fidelización', 'Página "todo en uno"'], s: '$1.800.000', m: '$449.000', antes: '~$2.100.000 + $550.000/mes', ahorro: 'Ahorra ~$100.000/mes' },
+];
+
+const CONDICIONES = [
+  ['La implementación incluye', 'Carga de servicios, carta o productos; marca del negocio; sesión de capacitación de 1 hora; material impreso con QR cuando aplica.'],
+  ['Plan anual', 'Pagando 12 meses por adelantado, se pagan 10. En el plan anual la implementación tiene 50% de descuento.'],
+  ['Permanencia mínima', 'Planes mensuales con permanencia mínima de 3 meses. Después, se cancela con 30 días de aviso.'],
+  ['Garantía de 60 días', 'Si en 60 días la solución no recupera al menos lo que cuesta, el tercer mes no se cobra.'],
+  ['Medios de pago', 'Transferencia, PSE, Nequi, Daviplata o tarjeta. Factura electrónica.'],
+  ['Sin comisiones', 'No cobramos porcentaje sobre ventas ni reservas. Excepción: boletería, si se elige el cobro por boleta.'],
+  ['Dominio propio', 'Si el negocio quiere su .com o .co, se cobra al costo (aprox. $60.000–$120.000 al año).'],
+  ['Referidos', 'Por cada negocio referido que contrate, un mes de mensualidad gratis.'],
+];
+
+/* ───────────────────────────── render ───────────────────────────── */
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m4.5 12.5 5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const cell = (v, rec) => {
+  const c = rec ? ' class="rec"' : '';
+  if (v === 1) return `<td${c}><span class="ok" aria-label="Incluido">${CHECK}</span></td>`;
+  if (v === 0) return `<td${c}><span class="no" aria-label="No incluido">—</span></td>`;
+  return `<td${c}><span class="txt">${esc(v)}</span></td>`;
+};
+
+function tierCards(p) {
+  return p.planes.map((t, i) => {
+    const items = p.filas.map((f) => {
+      if (f[0] === 'g') return `<li class="grp">${esc(f[1])}</li>`;
+      const v = f[i + 1];
+      if (v === 1) return `<li><span class="v">${CHECK}</span><span class="lbl">${esc(f[0])}</span></li>`;
+      if (v === 0 || v === '—') return `<li class="off"><span class="v">—</span><span class="lbl">${esc(f[0])}</span></li>`;
+      return `<li><span class="v">${CHECK}</span><span class="lbl">${esc(f[0])}</span><b>${esc(v)}</b></li>`;
+    }).join('');
+    return `<div class="tier${t.rec ? ' rec' : ''}"><div class="tier-h">${t.rec ? '<span class="badge">Recomendado</span>' : ''}<span class="tier-name">${esc(t.nombre)}</span><span class="tier-price">${esc(t.precio)}${/^\+?\$/.test(t.precio) ? '<small> /mes</small>' : ''}</span><span class="tier-note">${esc(t.nota)}</span></div><ul>${items}</ul></div>`;
+  }).join('');
+}
+
+document.getElementById('mainProducts').innerHTML = PRINCIPALES.map((p) => {
+  const head = p.planes.map((t) => `<th${t.rec ? ' class="rec"' : ''}>${t.rec ? '<span class="badge">Recomendado</span>' : ''}<span class="tier-name">${esc(t.nombre)}</span><span class="tier-price">${esc(t.precio)}${/^\+?\$/.test(t.precio) ? '<small> /mes</small>' : ''}</span><span class="tier-note">${esc(t.nota)}</span></th>`).join('');
+  const rows = p.filas.map((f) => {
+    if (f[0] === 'g') return `<tr class="grp"><td colspan="4">${esc(f[1])}</td></tr>`;
+    const [label, a, b, c, sub] = f;
+    return `<tr><td class="feat">${esc(label)}${sub ? `<small>${esc(sub)}</small>` : ''}</td>${cell(a, p.planes[0].rec)}${cell(b, p.planes[1].rec)}${cell(c, p.planes[2].rec)}</tr>`;
+  }).join('');
+  return `<article class="prod">
+    <div class="prod-top">
+      <div><h3>${esc(p.nombre)}</h3><p class="for">${esc(p.para)}</p></div>
+      <div class="setup"><i>Implementación</i><b>${esc(p.setup)}</b><small>${esc(p.setupNota)}</small></div>
+    </div>
+    <div class="tiers">${tierCards(p)}</div>
+    <div class="matrix-wrap"><table class="matrix"><thead><tr><th>Qué incluye</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="prod-foot">
+      <div><i>La implementación incluye</i><ul>${p.incluye.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      <div><i>Ideal para</i><ul><li>${esc(p.ideal)}</li></ul></div>
+    </div>
+  </article>`;
+}).join('');
+
+document.getElementById('modules').innerHTML = MODULOS.map((c) => `
+  <div class="cat"><h3>${esc(c.cat)}</h3><span>${esc(c.sub)}</span></div>
+  <div class="mods">${c.items.map((m) => `
+    <article class="mod">
+      <div class="mod-h"><h4>${esc(m.n)}</h4><p>${esc(m.p)}</p></div>
+      <div class="mod-price"><div><i>Implementación</i><b>${esc(m.s)}</b></div><div><i>Mensualidad</i><b>${esc(m.m)}</b></div></div>
+      <ul class="inc">${m.i.map((x) => `<li>${CHECK}<span>${esc(x)}</span></li>`).join('')}</ul>
+      ${m.nota ? `<p class="mod-note">${esc(m.nota)}</p>` : ''}
+    </article>`).join('')}</div>`).join('');
+
+document.getElementById('packs').innerHTML = PAQUETES.map((p) => `
+  <article class="pack${p.hi ? ' hi' : ''}">
+    <span class="save">${esc(p.ahorro)}</span>
+    <h4>${esc(p.n)}</h4>
+    <p class="muted">${esc(p.d)}</p>
+    <ul class="inc">${p.inc.map((x) => `<li>${CHECK}<span>${esc(x)}</span></li>`).join('')}</ul>
+    <div class="pack-price"><b>${esc(p.m)}<span> /mes</span></b><span>Implementación ${esc(p.s)}</span></div>
+    <p class="anchor">Por separado: <s>${esc(p.antes)}</s></p>
+  </article>`).join('');
+
+document.getElementById('terms').innerHTML = CONDICIONES.map(([t, d], i) => `
+  <div class="term"><h4><span>${i + 1}</span>${esc(t)}</h4><p>${esc(d)}</p></div>`).join('');
+
+/* tema y acciones */
+const root = document.documentElement;
+try { const t = localStorage.getItem('bs-precios-theme'); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('bs-precios-theme', root.dataset.theme); } catch (e) {}
+});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
