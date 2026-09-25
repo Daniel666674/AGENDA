@@ -10,8 +10,8 @@ export interface Seller {
 }
 
 export const DEFAULT_SELLER: Seller = {
-  name: 'BlackScale',
-  phone: '', // ← escribe aquí el WhatsApp de ventas para los demos guardados como archivo
+  name: 'Daniel Acosta',
+  phone: '+57 313 666 2777',
 };
 
 export const PLANS = {
