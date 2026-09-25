@@ -24,7 +24,7 @@ Cada demo lleva el nombre, colores, tipografía, servicios, equipo y vocabulario
 3. Publica el sitio. El demo queda en: `https://TU-DOMINIO/?c=barberia-el-rey`
 
 Hay una plantilla comentada en `src/clientes/_plantilla.ts` y cinco ejemplos listos:
-`?c=huellitas` (veterinaria) · `?c=la-navaja` (barbería) · `?c=mimosa` (nail spa) · `?c=sonrie` (dental) · `?c=northside` (consultorio, en inglés).
+`?c=huellitas` (veterinaria) · `?c=barberia-santa-fe` (barbería) · `?c=valentina-nails` (nail spa) · `?c=olmos-ortodoncia` (dental) · `?c=northside` (consultorio, en inglés).
 
 ### Durante la reunión con el prospecto
 
