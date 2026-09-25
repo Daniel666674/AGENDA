@@ -21,6 +21,7 @@ import { StaffView } from './views/Staff';
 import { Reports } from './views/Reports';
 import { BookingFlow, BookingPreview } from './views/Booking';
 import { Settings } from './views/Settings';
+import { Automations } from './views/Automations';
 
 export function DemoApp({ cfg, fromFile }: { cfg: DemoConfig; fromFile: boolean }) {
   const [ready] = useState(() => {
@@ -30,7 +31,7 @@ export function DemoApp({ cfg, fromFile }: { cfg: DemoConfig; fromFile: boolean 
   return ready ? <Shell fromFile={fromFile} /> : null;
 }
 
-const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | 'nav_clients' | 'nav_services' | 'nav_staff' | 'nav_reports' | 'nav_booking' | 'nav_settings'; mobile?: boolean }[] = [
+const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | 'nav_clients' | 'nav_services' | 'nav_staff' | 'nav_reports' | 'nav_booking' | 'nav_automations' | 'nav_settings'; mobile?: boolean }[] = [
   { route: 'today', icon: 'home', key: 'nav_today', mobile: true },
   { route: 'calendar', icon: 'calendar', key: 'nav_calendar', mobile: true },
   { route: 'clients', icon: 'users', key: 'nav_clients', mobile: true },
@@ -38,6 +39,7 @@ const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | '
   { route: 'staff', icon: 'team', key: 'nav_staff' },
   { route: 'reports', icon: 'chart', key: 'nav_reports', mobile: true },
   { route: 'booking', icon: 'globe', key: 'nav_booking' },
+  { route: 'automations', icon: 'wand', key: 'nav_automations' },
   { route: 'settings', icon: 'settings', key: 'nav_settings' },
 ];
 
@@ -117,6 +119,8 @@ function Shell({ fromFile }: { fromFile: boolean }) {
         return <Reports />;
       case 'booking':
         return <BookingPreview />;
+      case 'automations':
+        return <Automations />;
       case 'settings':
         return <Settings />;
       default:

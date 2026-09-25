@@ -168,6 +168,8 @@ export interface AppState {
   appointments: Appointment[];
   blocks: TimeBlock[];
   waitlist: WaitlistEntry[];
+  /** Automatizaciones activas (id → encendida). Si falta, se usan los valores por defecto. */
+  automations?: Record<string, boolean>;
 }
 
 // ─────────────────────────────────────────────────────────────

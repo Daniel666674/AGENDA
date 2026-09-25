@@ -59,6 +59,7 @@ export function CommandPalette() {
       ['staff', 'team', t('nav_staff')],
       ['reports', 'chart', t('nav_reports')],
       ['booking', 'globe', t('nav_booking')],
+      ['automations', 'wand', t('nav_automations')],
       ['settings', 'settings', t('nav_settings')],
     ];
     if (!query) {
