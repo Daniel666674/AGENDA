@@ -9,7 +9,7 @@ import { minutesOfDay, parseLocal } from './date';
 const MONDAY = new Date(2026, 8, 21, 8, 0);
 
 function emptyState(): AppState {
-  const s = buildState({ slug: 't', type: 'generic', name: 'Test', lang: 'es', currency: 'USD' }, MONDAY);
+  const s = buildState({ slug: 't', type: 'generic', name: 'Test', lang: 'es' }, MONDAY);
   s.appointments = [];
   s.blocks = [];
   return s;

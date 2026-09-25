@@ -14,12 +14,11 @@ const demo: DemoConfig = {
   tagline: 'Frase corta del negocio',
   preparedFor: 'Carlos', // nombre del dueño: sale en la bienvenida ("Preparado para Carlos")
   logo: '', // ej: '/logos/mi-negocio.png' (sube el archivo a public/logos) o una URL
-  phone: '+52 55 1234 5678',
-  whatsapp: '+52 55 1234 5678',
-  address: 'Av. Siempre Viva 742, Col. Centro',
+  phone: '+57 300 123 4567',
+  whatsapp: '+57 300 123 4567',
+  address: 'Cra. 7 #72-41, Bogotá',
   instagram: '@minegocio',
   lang: 'es', // 'es' | 'en'
-  currency: 'MXN', // MXN, USD, COP, EUR, ARS, CLP, PEN, GTQ, DOP, CRC…
   // theme: { accent: '#c8a063', mode: 'dark', fontDisplay: 'Fraunces', fontBody: 'Inter Tight' },
   // staff: [{ name: 'Andrés', role: 'Master barber' }, { name: 'Diego', role: 'Barbero' }],
   // services: [{ name: 'Corte clásico', duration: 30, price: 250, category: 'Cortes' }],

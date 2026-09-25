@@ -10,7 +10,6 @@ const demo: DemoConfig = {
   address: 'Cra. 11 #93-40, Chicó, Bogotá',
   instagram: '@lanavaja.barber',
   lang: 'es',
-  currency: 'COP',
 };
 
 export default demo;

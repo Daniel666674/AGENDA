@@ -284,7 +284,7 @@ function Editor({ id, draft }: { id?: string; draft: NonNullable<ReturnType<type
         {quick && (
           <div className="grid-2 mt-sm">
             <Field label={t('f_phone')}>
-              <input value={quick.phone} onChange={(e) => setQuick({ ...quick, phone: e.target.value })} placeholder="+52 …" autoFocus />
+              <input value={quick.phone} onChange={(e) => setQuick({ ...quick, phone: e.target.value })} placeholder="+57 3…" autoFocus />
             </Field>
             <Field label={t('f_email')}>
               <input value={quick.email} onChange={(e) => setQuick({ ...quick, email: e.target.value })} />

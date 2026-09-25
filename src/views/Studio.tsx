@@ -10,7 +10,6 @@ import { Icon } from '../components/Icon';
 
 const RECENT_KEY = 'agenda-studio:recent';
 const ACCENTS = ['#2f7a5c', '#b8456f', '#c8a063', '#2563a8', '#0f8b8d', '#8a6a45', '#7d3c62', '#e2552b', '#3f51b5', '#1f1f1f'];
-const CURRENCIES = ['MXN', 'USD', 'COP', 'EUR', 'ARS', 'CLP', 'PEN', 'GTQ', 'DOP', 'CRC', 'BOB', 'UYU', 'PYG', 'HNL', 'NIO'];
 
 function readRecent(): DemoConfig[] {
   try {
@@ -23,7 +22,7 @@ function readRecent(): DemoConfig[] {
 export function Studio() {
   const [type, setType] = useState<BusinessType>('barber');
   const preset = PRESETS[type];
-  const [f, setF] = useState({ name: '', tagline: '', preparedFor: '', phone: '', address: '', instagram: '', logo: '', lang: 'es' as Lang, currency: 'MXN' });
+  const [f, setF] = useState({ name: '', tagline: '', preparedFor: '', phone: '', address: '', instagram: '', logo: '', lang: 'es' as Lang });
   const [theme, setTheme] = useState({ ...preset.theme });
   const [recent, setRecent] = useState<DemoConfig[]>(readRecent);
   const [copied, setCopied] = useState<'' | 'link' | 'file'>('');
@@ -37,7 +36,7 @@ export function Studio() {
 
   const cfg: DemoConfig = useMemo(() => {
     const name = f.name.trim() || pick(preset.label, f.lang);
-    const c: DemoConfig = { slug: slugify(name) || 'demo', type, name, lang: f.lang, currency: f.currency, theme };
+    const c: DemoConfig = { slug: slugify(name) || 'demo', type, name, lang: f.lang, theme };
     if (f.tagline) c.tagline = f.tagline;
     if (f.preparedFor) c.preparedFor = f.preparedFor;
     if (f.phone) c.phone = f.phone;
@@ -113,7 +112,7 @@ export function Studio() {
             </Field>
             <div className="grid-2">
               <Field label="Teléfono / WhatsApp">
-                <input value={f.phone} onChange={(e) => set({ phone: e.target.value })} placeholder="+52 55 1234 5678" />
+                <input value={f.phone} onChange={(e) => set({ phone: e.target.value })} placeholder="+57 300 123 4567" />
               </Field>
               <Field label="Instagram">
                 <input value={f.instagram} onChange={(e) => set({ instagram: e.target.value })} placeholder="@negocio" />
@@ -130,19 +129,12 @@ export function Studio() {
                 <Segmented
                   size="sm"
                   value={f.lang}
-                  onChange={(lang) => set({ lang, currency: lang === 'en' && f.currency === 'MXN' ? 'USD' : f.currency })}
+                  onChange={(lang) => set({ lang })}
                   options={[
                     { value: 'es', label: 'Español' },
                     { value: 'en', label: 'English' },
                   ]}
                 />
-              </Field>
-              <Field label="Moneda">
-                <select value={f.currency} onChange={(e) => set({ currency: e.target.value })}>
-                  {CURRENCIES.map((c) => (
-                    <option key={c}>{c}</option>
-                  ))}
-                </select>
               </Field>
             </div>
 

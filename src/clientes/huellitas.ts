@@ -6,11 +6,10 @@ const demo: DemoConfig = {
   name: 'Huellitas',
   tagline: 'Clínica veterinaria de barrio, con corazón',
   preparedFor: 'Dra. Mariana',
-  phone: '+52 55 4012 3344',
-  address: 'Calle Durango 118, Roma Norte, CDMX',
+  phone: '+57 310 401 3344',
+  address: 'Cl. 70 #11-35, Quinta Camacho, Bogotá',
   instagram: '@huellitas.vet',
   lang: 'es',
-  currency: 'MXN',
 };
 
 export default demo;

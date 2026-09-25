@@ -7,9 +7,7 @@ import { appointmentsCsv, download } from '../lib/messaging';
 import { resolveDemo } from '../config/registry';
 import { Button, Card, Field, PageHead, Segmented } from '../components/ui';
 import { HoursEditor } from '../components/HoursEditor';
-import { CURRENCY_LOCALE } from '../config/presets';
 
-const CURRENCIES = ['MXN', 'USD', 'COP', 'EUR', 'ARS', 'CLP', 'PEN', 'GTQ', 'DOP', 'CRC', 'BOB', 'UYU', 'PYG', 'HNL', 'NIO', 'GBP', 'CAD'];
 
 export function Settings() {
   const app = useApp();
@@ -94,13 +92,6 @@ export function Settings() {
               <select value={b.lang} onChange={(e) => set({ lang: e.target.value as Business['lang'] })}>
                 <option value="es">Español</option>
                 <option value="en">English</option>
-              </select>
-            </Field>
-            <Field label={t('f_currency')}>
-              <select value={b.currency} onChange={(e) => set({ currency: e.target.value, locale: b.lang === 'en' && e.target.value !== 'USD' ? b.locale : CURRENCY_LOCALE[e.target.value] ?? b.locale })}>
-                {CURRENCIES.map((c) => (
-                  <option key={c}>{c}</option>
-                ))}
               </select>
             </Field>
             <Field label={t('f_time_format')}>

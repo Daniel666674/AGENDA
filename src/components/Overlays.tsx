@@ -154,7 +154,6 @@ export function Customizer({ fromFile }: { fromFile: boolean }) {
       address: b.address,
       instagram: b.instagram,
       lang: b.lang,
-      currency: b.currency,
       preparedFor: b.preparedFor,
       theme: b.theme,
     };

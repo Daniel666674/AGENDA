@@ -264,7 +264,7 @@ export const PRESETS: Record<BusinessType, Preset> = {
 export const SWATCHES = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
 
 const RATES: Record<string, number> = {
-  USD: 1, MXN: 18, COP: 4000, EUR: 0.92, ARS: 1000, CLP: 950, PEN: 3.7, GTQ: 7.8, DOP: 60, CRC: 510, GBP: 0.79, CAD: 1.36, BOB: 6.9, UYU: 40, PYG: 7500, HNL: 25, NIO: 36.7,
+  USD: 1, MXN: 18, COP: 2500, EUR: 0.92, ARS: 1000, CLP: 950, PEN: 3.7, GTQ: 7.8, DOP: 60, CRC: 510, GBP: 0.79, CAD: 1.36, BOB: 6.9, UYU: 40, PYG: 7500, HNL: 25, NIO: 36.7,
 };
 
 /** Convierte un precio base en USD a un precio "bonito" en la moneda local */
@@ -272,7 +272,7 @@ export function localPrice(usd: number, currency: string): number {
   const rate = RATES[currency] ?? 1;
   const v = usd * rate;
   if (v === 0) return 0;
-  const step = v >= 100000 ? 5000 : v >= 10000 ? 1000 : v >= 1000 ? 50 : v >= 100 ? 10 : v >= 20 ? 5 : 1;
+  const step = v >= 10000 ? 5000 : v >= 1000 ? 50 : v >= 100 ? 10 : v >= 20 ? 5 : 1;
   return Math.max(step, Math.round(v / step) * step);
 }
 
@@ -289,7 +289,3 @@ export const PET_SPECIES: Record<Lang, { species: string; breeds: string[]; name
   ],
 };
 
-/** Formato regional por moneda (separadores y símbolo correctos) */
-export const CURRENCY_LOCALE: Record<string, string> = {
-  MXN: 'es-MX', COP: 'es-CO', ARS: 'es-AR', CLP: 'es-CL', PEN: 'es-PE', GTQ: 'es-GT', DOP: 'es-DO', CRC: 'es-CR', EUR: 'es-ES', BOB: 'es-BO', UYU: 'es-UY', PYG: 'es-PY', HNL: 'es-HN', NIO: 'es-NI', USD: 'en-US', GBP: 'en-GB', CAD: 'en-CA',
-};

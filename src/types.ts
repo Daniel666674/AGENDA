@@ -191,8 +191,6 @@ export interface DemoConfig {
   address?: string;
   instagram?: string;
   lang?: Lang;
-  currency?: string;
-  locale?: string;
   timeFormat?: '12h' | '24h';
   /** Nombre de la persona a la que va dirigido el demo (aparece en la bienvenida) */
   preparedFor?: string;

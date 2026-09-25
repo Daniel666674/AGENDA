@@ -3,7 +3,7 @@
 import type { AppState, Appointment, Client, DemoConfig, Service, Staff, Status } from '../types';
 import { addDays, atMinutes, dateKey, minutesOfDay, toLocal } from '../lib/date';
 import { busyIntervals, subtract, workingWindows } from '../lib/availability';
-import { CURRENCY_LOCALE, PET_SPECIES, PRESETS, SWATCHES, localPrice, pick } from './presets';
+import { PET_SPECIES, PRESETS, SWATCHES, localPrice, pick } from './presets';
 
 export const STATE_VERSION = 3;
 
@@ -58,8 +58,9 @@ const APPT_NOTES = {
 
 const TAGS = { es: ['VIP', 'Frecuente', 'Nuevo', 'Referido'], en: ['VIP', 'Regular', 'New', 'Referral'] };
 
-const DEFAULT_CURRENCY = { es: 'MXN', en: 'USD' } as const;
-const DEFAULT_LOCALE = { es: 'es-MX', en: 'en-US' } as const;
+/** Todos los demos trabajan en pesos colombianos */
+export const CURRENCY = 'COP';
+export const LOCALE = 'es-CO';
 
 export function slugify(s: string): string {
   return s
@@ -73,7 +74,7 @@ export function slugify(s: string): string {
 export function buildState(cfg: DemoConfig, today: Date = new Date()): AppState {
   const preset = PRESETS[cfg.type] ?? PRESETS.generic;
   const lang = cfg.lang ?? 'es';
-  const currency = cfg.currency ?? DEFAULT_CURRENCY[lang];
+  const currency = CURRENCY;
   const r = rng(hash(cfg.slug + dateKey(today)));
   let idn = 0;
   const id = (p: string) => `${p}${(++idn).toString(36)}`;
@@ -129,7 +130,7 @@ export function buildState(cfg: DemoConfig, today: Date = new Date()): AppState 
     address: cfg.address ?? '',
     instagram: cfg.instagram ?? '',
     currency,
-    locale: cfg.locale ?? (lang === 'es' || currency === 'USD' ? CURRENCY_LOCALE[currency] : undefined) ?? DEFAULT_LOCALE[lang],
+    locale: LOCALE,
     lang,
     timeFormat: cfg.timeFormat ?? '12h',
     weekStartsOn: lang === 'en' ? 0 : 1,
@@ -148,7 +149,6 @@ export function buildState(cfg: DemoConfig, today: Date = new Date()): AppState 
   // ── Clientes ──────────────────────────────────────────────
   const names = NAMES[lang];
   const femaleBias = ['nails', 'salon', 'spa'].includes(cfg.type) ? 0.85 : cfg.type === 'barber' ? 0.08 : 0.5;
-  const cc = (cfg.phone ?? '').trim().startsWith('+') ? (cfg.phone ?? '').trim().split(/\s+/)[0] + ' ' : '';
   const used = new Set<string>();
   const clients: Client[] = [];
   const createdBase = addDays(today, -400);
@@ -171,7 +171,7 @@ export function buildState(cfg: DemoConfig, today: Date = new Date()): AppState 
     clients.push({
       id: id('cli'),
       name,
-      phone: `${cc}${r.int(20, 99)} ${r.int(1000, 9999)} ${r.int(1000, 9999)}`,
+      phone: `+57 3${r.int(0, 5)}${r.int(0, 9)} ${r.int(100, 999)} ${r.int(1000, 9999)}`,
       email,
       notes: r.chance(0.45) ? r.pick(NOTES[lang]) : '',
       tags: r.chance(0.35) ? [r.pick(TAGS[lang])] : [],

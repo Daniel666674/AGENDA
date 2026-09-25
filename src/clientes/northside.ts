@@ -6,10 +6,9 @@ const demo: DemoConfig = {
   name: 'Northside Family Clinic',
   tagline: 'Primary care for the whole family',
   preparedFor: 'Dr. Vidal',
-  phone: '+1 512 555 0142',
-  address: '2100 N Lamar Blvd, Austin, TX',
+  phone: '+57 300 555 0142',
+  address: 'Cra. 43B #1A Sur-29, Medellín',
   lang: 'en',
-  currency: 'USD',
   staff: [
     { name: 'Dr. Alex Vidal', role: 'Family medicine' },
     { name: 'Dr. Paula Mendez', role: 'Pediatrics' },

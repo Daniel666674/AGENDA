@@ -4,6 +4,7 @@ import type { AppState, Status } from '../types';
 import { useAppState } from '../store/store';
 import { translate, type TKey } from '../i18n';
 import { PRESETS, pick } from '../config/presets';
+import { CURRENCY, LOCALE } from '../config/seed';
 import { hm, parseLocal } from './date';
 
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -22,8 +23,8 @@ export function makeHelpers(s: AppState) {
   };
   const t = (key: TKey, vars?: Record<string, string | number>) => translate(lang, key, { ...nouns, ...vars });
 
-  const money = new Intl.NumberFormat(b.locale, { style: 'currency', currency: b.currency, currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0 });
-  const num1 = new Intl.NumberFormat(b.locale, { maximumFractionDigits: 1 });
+  const money = new Intl.NumberFormat(LOCALE, { style: 'currency', currency: CURRENCY, currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0 });
+  const num1 = new Intl.NumberFormat(LOCALE, { maximumFractionDigits: 1 });
   const sym = money.formatToParts(0).find((p) => p.type === 'currency')?.value ?? '$';
   const symbol = sym.length > 1 ? sym + ' ' : sym;
   /** Formato corto legible: $21,030 · $1.2M · $850k (sólo abrevia cifras grandes) */

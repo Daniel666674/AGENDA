@@ -6,11 +6,10 @@ const demo: DemoConfig = {
   name: 'Mimosa',
   tagline: 'Nail studio & pedicure spa',
   preparedFor: 'Valeria',
-  phone: '+52 33 3616 2020',
-  address: 'Av. Chapultepec 250, Guadalajara',
+  phone: '+57 304 361 2020',
+  address: 'Cra. 37 #8A-32, El Poblado, Medellín',
   instagram: '@mimosa.nails',
   lang: 'es',
-  currency: 'MXN',
 };
 
 export default demo;
