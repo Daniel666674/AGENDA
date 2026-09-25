@@ -195,6 +195,8 @@ export interface DemoConfig {
   /** Nombre de la persona a la que va dirigido el demo (aparece en la bienvenida) */
   preparedFor?: string;
   theme?: Partial<Theme>;
+  /** Vendedor al que le llega el "Quiero activarlo" */
+  seller?: { name: string; phone: string };
   hours?: WeekHours;
   staff?: { name: string; role?: string; color?: string; photo?: string }[];
   services?: {

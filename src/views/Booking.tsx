@@ -9,6 +9,7 @@ import { mutate, newClient } from '../store/actions';
 import { getState, uid } from '../store/store';
 import { uiActions } from '../store/ui';
 import { go } from '../lib/router';
+import { track } from '../lib/track';
 import { Avatar, Button, cx } from '../components/ui';
 import { Icon } from '../components/Icon';
 import { Logo } from '../components/Overlays';
@@ -92,6 +93,7 @@ export function BookingFlow({ embedded }: { embedded?: boolean }) {
     });
     uiActions.toast(t('t_booked_online', { name: c.name.split(' ')[0] }), { tone: 'online' });
     uiActions.highlight(appt.id);
+    track('booking', service.name);
     setBooked(appt);
     setStep(5);
   };

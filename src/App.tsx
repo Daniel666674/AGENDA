@@ -22,16 +22,23 @@ import { Reports } from './views/Reports';
 import { BookingFlow, BookingPreview } from './views/Booking';
 import { Settings } from './views/Settings';
 import { Automations } from './views/Automations';
+import { ActivateCTA, SavingsCalc } from './components/Sales';
+import { DEFAULT_SELLER } from './config/sales';
+import { setTrackContext, track } from './lib/track';
 
 export function DemoApp({ cfg, fromFile }: { cfg: DemoConfig; fromFile: boolean }) {
   const [ready] = useState(() => {
     initStore(cfg);
     return true;
   });
-  return ready ? <Shell fromFile={fromFile} /> : null;
+  useEffect(() => {
+    setTrackContext({ kind: 'agenda', slug: cfg.slug, name: cfg.name, seller: (cfg.seller ?? DEFAULT_SELLER).name });
+    track('open');
+  }, [cfg]);
+  return ready ? <Shell fromFile={fromFile} cfg={cfg} /> : null;
 }
 
-const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | 'nav_clients' | 'nav_services' | 'nav_staff' | 'nav_reports' | 'nav_booking' | 'nav_automations' | 'nav_settings'; mobile?: boolean }[] = [
+const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | 'nav_clients' | 'nav_services' | 'nav_staff' | 'nav_reports' | 'nav_booking' | 'nav_automations' | 'nav_savings' | 'nav_settings'; mobile?: boolean }[] = [
   { route: 'today', icon: 'home', key: 'nav_today', mobile: true },
   { route: 'calendar', icon: 'calendar', key: 'nav_calendar', mobile: true },
   { route: 'clients', icon: 'users', key: 'nav_clients', mobile: true },
@@ -40,10 +47,12 @@ const NAV: { route: Route; icon: IconName; key: 'nav_today' | 'nav_calendar' | '
   { route: 'reports', icon: 'chart', key: 'nav_reports', mobile: true },
   { route: 'booking', icon: 'globe', key: 'nav_booking' },
   { route: 'automations', icon: 'wand', key: 'nav_automations' },
+  { route: 'savings', icon: 'coin', key: 'nav_savings' },
   { route: 'settings', icon: 'settings', key: 'nav_settings' },
 ];
 
-function Shell({ fromFile }: { fromFile: boolean }) {
+function Shell({ fromFile, cfg }: { fromFile: boolean; cfg: DemoConfig }) {
+  const seller = cfg.seller?.phone ? cfg.seller : DEFAULT_SELLER;
   const { s, t } = useApp();
   const ui = useUI();
   const { route } = useRoute();
@@ -121,6 +130,8 @@ function Shell({ fromFile }: { fromFile: boolean }) {
         return <BookingPreview />;
       case 'automations':
         return <Automations />;
+      case 'savings':
+        return <SavingsCalc kind="agenda" business={b.name} seller={seller} defaults={agendaDefaults(s)} />;
       case 'settings':
         return <Settings />;
       default:
@@ -201,8 +212,19 @@ function Shell({ fromFile }: { fromFile: boolean }) {
       <ClientEditorModal />
       <CommandPalette />
       <Customizer fromFile={fromFile} />
+      <ActivateCTA kind="agenda" business={b.name} seller={seller} />
       <Toasts />
       {welcome && <Welcome onEnter={enter} />}
     </div>
   );
+}
+
+/** Valores iniciales de la calculadora a partir de los datos del demo */
+function agendaDefaults(s: import('./types').AppState): Record<string, number> {
+  const now = new Date();
+  const from = dateKey(new Date(now.getTime() - 7 * 86400000));
+  const week = s.appointments.filter((a) => a.start >= from && a.start <= dateKey(now) + 'T23:59' && a.status !== 'cancelled');
+  const done = s.appointments.filter((a) => a.status === 'completed');
+  const avg = done.length ? done.reduce((n, a) => n + a.price, 0) / done.length : 50000;
+  return { citas: Math.max(10, Math.round(week.length / 5) * 5), ticket: Math.max(10000, Math.round(avg / 5000) * 5000), noshow: 10, horas: 2, hora: 8000 };
 }

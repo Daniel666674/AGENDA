@@ -1526,3 +1526,167 @@
     border: 1px dashed #999;
   }
 }
+
+/* ── estudio: vendedor y seguimiento ─────────────────────── */
+.studio-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+.studio-top .product-switch {
+  margin-bottom: 0;
+}
+.product-switch.three {
+  grid-template-columns: repeat(3, auto);
+}
+.seller-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+.seller-card.missing {
+  border-color: var(--st-pending);
+  background: color-mix(in oklab, var(--st-pending) 8%, var(--surface));
+}
+.seller-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--wa) 14%, var(--surface));
+  color: var(--wa);
+  flex: none;
+}
+.seller-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  max-width: 460px;
+}
+.seller-form > span {
+  flex-basis: 100%;
+}
+.seller-form input {
+  flex: 1 1 140px;
+  min-height: 36px;
+  padding: 6px 10px;
+}
+.seller-view {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.track-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.track-head h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.05;
+}
+.track-login {
+  max-width: 520px;
+}
+.track-login h3 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.track-login form {
+  align-items: flex-end;
+  margin-top: 14px;
+}
+.track-login .field {
+  margin: 0;
+}
+.heat {
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.heat.hot {
+  background: #d0443c;
+  color: #fff;
+}
+.heat.warm {
+  background: color-mix(in oklab, #e0532e 16%, var(--surface));
+  color: #c2410c;
+}
+.heat.mid {
+  background: color-mix(in oklab, var(--st-pending) 16%, var(--surface));
+  color: var(--st-pending);
+}
+.heat.cold {
+  background: color-mix(in oklab, var(--ink) 7%, transparent);
+  color: var(--ink-2);
+}
+.track-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.track-acts .chip {
+  padding: 3px 9px;
+  font-size: 11.5px;
+}
+.track-table tbody tr {
+  cursor: default;
+}
+.track-feed {
+  list-style: none;
+  margin: 0;
+  padding: 6px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.track-feed li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.track-feed li:last-child {
+  border-bottom: 0;
+}
+.track-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  flex: none;
+}
+.track-dot.cta {
+  background: #d0443c;
+}
+.track-dot.calc {
+  background: var(--st-pending);
+}
+.track-dot.booking,
+.track-dot.order {
+  background: var(--st-confirmed);
+}
+@media (max-width: 900px) {
+  .product-switch.three {
+    grid-template-columns: 1fr;
+  }
+}

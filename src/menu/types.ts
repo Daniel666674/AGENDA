@@ -135,6 +135,8 @@ export interface MenuConfig {
   wifi?: string;
   tables?: number;
   theme?: Partial<Theme>;
+  /** Vendedor al que le llega el "Quiero activarlo" */
+  seller?: { name: string; phone: string };
   /** Reemplaza la carta de ejemplo */
   menu?: { category: string; emoji?: string; items: { name: string; price: number; description?: string; emoji?: string; photo?: string }[] }[];
 }

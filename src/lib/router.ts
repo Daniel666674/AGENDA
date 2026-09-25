@@ -1,7 +1,7 @@
 // Router mínimo basado en el hash (#/agenda) → funciona en cualquier hosting estático
 import { useSyncExternalStore } from 'react';
 
-export type Route = 'today' | 'calendar' | 'clients' | 'services' | 'staff' | 'reports' | 'booking' | 'automations' | 'settings' | 'book';
+export type Route = 'today' | 'calendar' | 'clients' | 'services' | 'staff' | 'reports' | 'booking' | 'automations' | 'savings' | 'settings' | 'book';
 
 function current(): { route: Route; params: URLSearchParams } {
   const raw = location.hash.replace(/^#\/?/, '');

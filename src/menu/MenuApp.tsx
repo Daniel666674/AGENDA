@@ -15,9 +15,13 @@ import { MenuAdmin } from './views/MenuAdmin';
 import { Sales } from './views/Sales';
 import { QR } from './qr';
 import { VenueLogo } from './views/shared';
+import { ActivateCTA, SavingsCalc } from '../components/Sales';
+import { DEFAULT_SELLER } from '../config/sales';
+import { setTrackContext, track } from '../lib/track';
+import { orderTotal } from './seed';
 import './menu.css';
 
-type Route = 'pedidos' | 'mesas' | 'carta' | 'ventas' | 'cliente';
+type Route = 'pedidos' | 'mesas' | 'carta' | 'ventas' | 'cliente' | 'ahorro';
 
 function useHash() {
   const [h, setH] = useState(location.hash);
@@ -74,6 +78,10 @@ function chime() {
 
 export function MenuDemo({ cfg }: { cfg: MenuConfig }) {
   const [ready] = useState(() => (initMenu(cfg), true));
+  useEffect(() => {
+    setTrackContext({ kind: 'menu', slug: cfg.slug, name: cfg.name, seller: (cfg.seller ?? DEFAULT_SELLER).name });
+    if (!location.hash.startsWith('#/mesa/')) track('open');
+  }, [cfg]);
   return ready ? <Shell cfg={cfg} /> : null;
 }
 
@@ -83,10 +91,17 @@ const NAV: { route: Route; icon: IconName; label: string }[] = [
   { route: 'carta', icon: 'list', label: 'Carta' },
   { route: 'ventas', icon: 'chart', label: 'Ventas' },
   { route: 'cliente', icon: 'phone', label: 'Vista del cliente' },
+  { route: 'ahorro', icon: 'coin', label: 'Tu ahorro' },
 ];
 
 function Shell({ cfg }: { cfg: MenuConfig }) {
   const s = useMenuState();
+  const seller = cfg.seller?.phone ? cfg.seller : DEFAULT_SELLER;
+  const menuDefaults = () => {
+    const paid = s.orders.filter((o) => o.status !== 'cancelled');
+    const avgOrder = paid.length ? paid.reduce((n, o) => n + orderTotal(o), 0) / paid.length : 60000;
+    return { mesas: s.tables.length, rotacion: 2.5, ticket: Math.max(10000, Math.round((avgOrder * 1.5) / 5000) * 5000), dias: 26, espera: 8 };
+  };
   const hash = useHash();
   const v = s.venue;
   const [mode, setMode] = useState<'light' | 'dark' | null>(null);
@@ -232,10 +247,11 @@ function Shell({ cfg }: { cfg: MenuConfig }) {
           {route === 'carta' && <MenuAdmin />}
           {route === 'ventas' && <Sales />}
           {route === 'cliente' && <Preview />}
+          {route === 'ahorro' && <SavingsCalc kind="menu" business={v.name} seller={seller} defaults={menuDefaults()} />}
         </main>
       </div>
       <nav className="tabbar">
-        {NAV.map((n) => (
+        {NAV.filter((n) => n.route !== 'cliente').map((n) => (
           <a key={n.route} href={`#/${n.route}`} className={cx('tab', route === n.route && 'on')}>
             <Icon name={n.icon} size={20} />
             <span>{n.label.split(' ')[0]}</span>
@@ -243,6 +259,7 @@ function Shell({ cfg }: { cfg: MenuConfig }) {
         ))}
       </nav>
       <Toasts />
+      <ActivateCTA kind="menu" business={v.name} seller={seller} />
       {custom && <Customize cfg={cfg} onClose={() => setCustom(false)} onMode={setMode} mode={theme} />}
       {welcome && (
         <Welcome
@@ -358,7 +375,7 @@ function Customize({ cfg, onClose, onMode, mode }: { cfg: MenuConfig; onClose: (
   const setV = (p: Partial<typeof v>) => change((d) => Object.assign(d.venue, p), false);
   const setT = (p: Partial<typeof v.theme>) => change((d) => Object.assign(d.venue.theme, p), false);
   const share = () => {
-    const c: MenuConfig = { slug: s.slug, type: v.type, name: v.name, tagline: v.tagline, logo: v.logo, phone: v.phone, address: v.address, instagram: v.instagram, preparedFor: v.preparedFor, wifi: v.wifi, tables: s.tables.length, theme: v.theme };
+    const c: MenuConfig = { slug: s.slug, type: v.type, name: v.name, tagline: v.tagline, logo: v.logo, phone: v.phone, address: v.address, instagram: v.instagram, preparedFor: v.preparedFor, wifi: v.wifi, tables: s.tables.length, theme: v.theme, seller: cfg.seller };
     navigator.clipboard?.writeText(`${location.origin}${location.pathname}?md=${encodeMenu(c)}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);

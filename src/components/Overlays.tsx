@@ -9,7 +9,7 @@ import { parseLocal } from '../lib/date';
 import { digits } from '../lib/messaging';
 import { PRESETS, pick } from '../config/presets';
 import { FONT_PAIRS } from '../lib/theme';
-import { demoUrl } from '../config/registry';
+import { demoUrl, resolveDemo } from '../config/registry';
 import { Avatar, Button, ColorDots, Drawer, Field, Segmented, cx, useEscape } from './ui';
 import { Icon, type IconName } from './Icon';
 
@@ -156,6 +156,7 @@ export function Customizer({ fromFile }: { fromFile: boolean }) {
       lang: b.lang,
       preparedFor: b.preparedFor,
       theme: b.theme,
+      seller: resolveDemo()?.seller,
     };
     navigator.clipboard?.writeText(demoUrl(cfg, false));
     setCopied(true);

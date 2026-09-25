@@ -1,6 +1,7 @@
 // Estudio: crear un demo de pedidos por QR para un restaurante, café o bar en 1 minuto
 import { useEffect, useMemo, useState } from 'react';
 import type { MenuConfig, VenueType } from './types';
+import type { Seller } from '../config/sales';
 import { VENUES } from './presets';
 import { FILE_MENUS, encodeMenu } from './registry';
 import { slugify } from '../config/seed';
@@ -19,7 +20,7 @@ function readRecent(): MenuConfig[] {
   }
 }
 
-export function MenuStudio() {
+export function MenuStudio({ seller }: { seller: Seller }) {
   const [type, setType] = useState<VenueType>('restaurant');
   const preset = VENUES[type];
   const [f, setF] = useState({ name: '', tagline: '', preparedFor: '', phone: '', address: '', instagram: '', logo: '', tables: '' });
@@ -34,8 +35,9 @@ export function MenuStudio() {
     const c: MenuConfig = { slug: slugify(name) || 'local', type, name, theme };
     for (const k of ['tagline', 'preparedFor', 'phone', 'address', 'instagram', 'logo'] as const) if (f[k]) c[k] = f[k];
     if (Number(f.tables) > 0) c.tables = Math.min(60, Number(f.tables));
+    if (seller.phone) c.seller = seller;
     return c;
-  }, [f, type, theme, preset]);
+  }, [f, type, theme, preset, seller]);
 
   const remember = () => {
     const next = [cfg, ...recent.filter((r) => r.slug !== cfg.slug)].slice(0, 12);

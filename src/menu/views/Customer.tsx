@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { MenuItem, OrderLine, PayMethod } from '../types';
 import { addRequest, placeOrder, useMenuHelpers, useMenuState } from '../store';
 import { mid, orderTotal } from '../seed';
+import { track } from '../../lib/track';
 import { Icon } from '../../components/Icon';
 import { cx } from '../../components/ui';
 import { VenueLogo, ItemArt, STATUS_STEPS, TAG_LABEL } from './shared';
@@ -56,6 +57,7 @@ export function Customer({ tableId, embedded }: { tableId?: string; embedded?: b
 
   const send = (name: string, note: string) => {
     const o = placeOrder({ tableId: table.id, lines: cart, note, name });
+    track('order', `Mesa ${table.number}`);
     setCart([]);
     setSheet(null);
     setSentId(o.id);

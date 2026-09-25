@@ -1,4 +1,5 @@
 // Estudio de demos: herramienta interna para crear un demo por prospecto en 1 minuto, sin tocar código.
+import type { Seller } from '../config/sales';
 import { useEffect, useMemo, useState } from 'react';
 import type { BusinessType, DemoConfig, Lang } from '../types';
 import { PRESETS, pick } from '../config/presets';
@@ -19,7 +20,7 @@ function readRecent(): DemoConfig[] {
   }
 }
 
-export function Studio() {
+export function Studio({ seller }: { seller: Seller }) {
   const [type, setType] = useState<BusinessType>('barber');
   const preset = PRESETS[type];
   const [f, setF] = useState({ name: '', tagline: '', preparedFor: '', phone: '', address: '', instagram: '', logo: '', lang: 'es' as Lang });
@@ -41,8 +42,9 @@ export function Studio() {
     if (f.address) c.address = f.address;
     if (f.instagram) c.instagram = f.instagram;
     if (f.logo) c.logo = f.logo;
+    if (seller.phone) c.seller = seller;
     return c;
-  }, [f, type, theme, preset]);
+  }, [f, type, theme, preset, seller]);
 
   const remember = () => {
     const next = [cfg, ...recent.filter((r) => r.slug !== cfg.slug)].slice(0, 12);
