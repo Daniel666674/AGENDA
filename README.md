@@ -1,4 +1,35 @@
-# Agenda: demos de agenda en línea para negocios locales
+# Demos para negocios locales: Agenda de citas + Pedidos por QR
+
+Este proyecto tiene **dos productos** en el mismo sitio. En la página principal (el Estudio) eliges cuál demostrar:
+
+| Producto | Para quién | Enlace de ejemplo |
+|---|---|---|
+| **Agenda de citas** | veterinarias, spas, barberías, consultorios, odontología… | `?c=huellitas` |
+| **Pedidos por QR** | restaurantes, cafés, bares, comida rápida | `?m=fonda-dona-rosa` |
+
+---
+
+## Pedidos por QR (restaurantes, cafés, bares)
+
+El comensal escanea el código QR de su mesa, ve la carta con fotos, pide desde su celular y el pedido llega directo al tablero de cocina. También puede **llamar al mesero** y **pedir la cuenta** (con propina voluntaria y método de pago: tarjeta, efectivo, Nequi, Daviplata).
+
+**Crear un demo:** en el Estudio elige **"Pedidos por QR"**, el tipo de local (restaurante, café/panadería, bar/gastrobar, comida rápida), escribe el nombre, dueño, número de mesas, logo y color, y copia el enlace. También se puede guardar como archivo en `src/restaurantes/` (hay una plantilla).
+
+Ejemplos listos: `?m=fonda-dona-rosa` (restaurante) · `?m=cafe-la-esquina` (café) · `?m=bar-el-patio` (bar) · `?m=burger-don-pedro` (comida rápida).
+
+**Qué incluye el panel del local:**
+- **Pedidos:** tablero en vivo (Nuevos → En preparación → Listos → Entregados) con cronómetro por pedido, alertas de mesero y cuenta, sonido al entrar un pedido.
+- **Mesas:** mapa del salón por zonas con el estado de cada mesa y lo que falta por cobrar · **códigos QR imprimibles** por mesa.
+- **Carta:** precios, fotos, etiquetas y botón de "agotado" que se refleja al instante en el QR.
+- **Ventas:** cobrado del día, ticket promedio, tiempo a la mesa, ventas por hora y lo más vendido.
+- **Vista del cliente:** el celular del comensal dentro del panel, para la reunión.
+- **Demo en vivo:** mientras está encendido, entran pedidos de ejemplo cada 30–60 segundos para que el tablero "se mueva".
+
+**Truco para la reunión:** abre el demo en dos ventanas del mismo navegador, una en *Pedidos* y otra en *Mesas → Abrir como cliente*. Lo que pidas en la del cliente aparece al instante en la cocina (o escanea el QR de "Vista del cliente" con tu celular para mostrar la experiencia real; en ese caso el pedido queda en tu celular, porque el demo no usa servidor).
+
+---
+
+# Agenda de citas
 
 Una agenda profesional (citas, recordatorios por WhatsApp, reservas en línea y reportes) pensada para **mostrarse como demo personalizado** a cada prospecto: veterinarias, nail spas, barberías, consultorios, clínicas dentales/ortodoncia, spas, salones, estudios fitness o cualquier negocio con citas.
 

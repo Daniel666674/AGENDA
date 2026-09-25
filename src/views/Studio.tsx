@@ -4,7 +4,7 @@ import type { BusinessType, DemoConfig, Lang } from '../types';
 import { PRESETS, pick } from '../config/presets';
 import { FILE_DEMOS, demoUrl, encodeConfig } from '../config/registry';
 import { slugify } from '../config/seed';
-import { FONT_PAIRS, applyTheme, inkOn, loadFonts } from '../lib/theme';
+import { FONT_PAIRS, inkOn, loadFonts } from '../lib/theme';
 import { Button, ColorDots, Field, Segmented, cx } from '../components/ui';
 import { Icon } from '../components/Icon';
 
@@ -28,8 +28,6 @@ export function Studio() {
   const [copied, setCopied] = useState<'' | 'link' | 'file'>('');
 
   useEffect(() => {
-    applyTheme({ accent: '#1c1b19', paper: '#f4f2ee', mode: 'light', fontDisplay: 'Instrument Serif', fontBody: 'Inter Tight', radius: 12 }, 'light');
-    document.title = 'Estudio de demos · Agenda';
   }, []);
   useEffect(() => setTheme({ ...PRESETS[type].theme }), [type]);
   useEffect(() => loadFonts([theme.fontDisplay, theme.fontBody]), [theme.fontDisplay, theme.fontBody]);
@@ -75,10 +73,10 @@ export function Studio() {
   const set = (patch: Partial<typeof f>) => setF((x) => ({ ...x, ...patch }));
 
   return (
-    <div className="studio">
+    <>
       <header className="studio-head">
         <div>
-          <p className="eyebrow">Agenda · Estudio de demos</p>
+          <p className="eyebrow">Agenda de citas · Estudio de demos</p>
           <h1 className="display">Un demo a la medida para cada prospecto.</h1>
           <p className="muted lead">Escribe el nombre del negocio, elige su giro y sus colores. En un clic tienes una agenda completa, con servicios, equipo y citas de ejemplo, lista para enviar.</p>
         </div>
@@ -222,7 +220,7 @@ export function Studio() {
           )}
         </section>
       )}
-    </div>
+    </>
   );
 }
 
