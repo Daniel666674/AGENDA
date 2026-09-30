@@ -10,6 +10,8 @@ import { getState, uid } from '../store/store';
 import { uiActions } from '../store/ui';
 import { go } from '../lib/router';
 import { track } from '../lib/track';
+import { sendLiveBooking } from '../lib/live';
+import { QR } from '../menu/qr';
 import { Avatar, Button, cx } from '../components/ui';
 import { Icon } from '../components/Icon';
 import { Logo } from '../components/Overlays';
@@ -94,6 +96,7 @@ export function BookingFlow({ embedded }: { embedded?: boolean }) {
     uiActions.toast(t('t_booked_online', { name: c.name.split(' ')[0] }), { tone: 'online' });
     uiActions.highlight(appt.id);
     track('booking', service.name);
+    sendLiveBooking(st.slug, appt, c.name, form.pet.trim() || undefined);
     setBooked(appt);
     setStep(5);
   };
@@ -371,9 +374,17 @@ export function BookingPreview() {
         <p className="eyebrow">{t('nav_booking')}</p>
         <h1 className="display">{t('bk_preview_title')}</h1>
         <p className="muted lead">{t('bk_preview_body')}</p>
-        <div className="link-box">
-          <Icon name="link" size={16} />
-          <span className="truncate">{link.replace(/^https?:\/\//, '')}</span>
+        <div className="scan-card">
+          <div className="scan-qr">
+            <QR value={link} size={168} color="#16140f" />
+          </div>
+          <div className="scan-text">
+            <strong>{t('bk_scan_title')}</strong>
+            <span className="muted small">{t('bk_scan_body')}</span>
+            <span className="scan-live">
+              <span className="live-dot-lg on" /> {t('bk_scan_live')}
+            </span>
+          </div>
         </div>
         <div className="row gap-sm wrap">
           <Button

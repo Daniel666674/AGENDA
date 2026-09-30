@@ -4412,3 +4412,55 @@ th.num .th-sort {
     display: none;
   }
 }
+
+/* ── QR para probar la reserva desde el celular ─────────── */
+.scan-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 14px;
+  max-width: 520px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.scan-qr {
+  flex: none;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  line-height: 0;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.06);
+}
+.scan-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.scan-text strong {
+  font-size: 16px;
+}
+.scan-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--st-confirmed);
+}
+.scan-live .live-dot-lg {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22b35e;
+  animation: pulse 1.8s infinite;
+  color: #22b35e;
+}
+@media (max-width: 560px) {
+  .scan-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

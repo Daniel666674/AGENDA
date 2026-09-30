@@ -25,6 +25,7 @@ import { Automations } from './views/Automations';
 import { ActivateCTA, SavingsCalc } from './components/Sales';
 import { DEFAULT_SELLER } from './config/sales';
 import { setTrackContext, track } from './lib/track';
+import { startLiveReceiver } from './lib/live';
 
 export function DemoApp({ cfg, fromFile }: { cfg: DemoConfig; fromFile: boolean }) {
   const [ready] = useState(() => {
@@ -73,6 +74,11 @@ function Shell({ fromFile, cfg }: { fromFile: boolean; cfg: DemoConfig }) {
     document.documentElement.lang = b.lang;
   }, [b.name, b.lang]);
   useEffect(() => setMenu(false), [route]);
+  // Reservas hechas desde otro celular (QR de "Reserva en línea") aparecen aquí en vivo
+  useEffect(() => {
+    if (route === 'book') return;
+    return startLiveReceiver(s.slug, (name) => uiActions.toast(t('t_booked_online', { name: name.split(' ')[0] }), { tone: 'online' }));
+  }, [route === 'book', s.slug]);
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
