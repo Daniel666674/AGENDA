@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guion de Visita · BlackScale</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+/* ============================================================
+   BLACKSCALE · Guion de visita presencial (SDR)
+   PANTONE 4102 #551C25 · Black #11110F · 7555 #D19C15 · Cool Gray 1 #D7D2CB
+   ============================================================ */
+:root{
+  --caoba:#551C25; --oro:#D19C15; --negro:#11110F; --gris:#D7D2CB;
+  --bg:#D7D2CB; --surface:#E4E0DB; --raised:#EFEDE9;
+  --line:#BDB5AA; --line-soft:#CBC4BA;
+  --tx:#11110F; --tx-dim:#5C564E; --tx-faint:#847D73;
+  --accent:#551C25; --accent-fill:#D19C15; --accent-on-fill:#11110F;
+  --field:#551C25; --field-tx:#EFEDE9;
+  --ring:0 0 0 3px rgba(85,28,37,.28);
+  --ui:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --maxw:880px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11110F; --surface:#1A1917; --raised:#22201D;
+    --line:#312D29; --line-soft:#26231F;
+    --tx:#D7D2CB; --tx-dim:#9A938A; --tx-faint:#736C64;
+    --accent:#D19C15; --field:#551C25; --field-tx:#E8E4DF;
+    --ring:0 0 0 3px rgba(209,156,21,.32);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11110F; --surface:#1A1917; --raised:#22201D;
+  --line:#312D29; --line-soft:#26231F;
+  --tx:#D7D2CB; --tx-dim:#9A938A; --tx-faint:#736C64;
+  --accent:#D19C15; --field:#551C25; --field-tx:#E8E4DF;
+  --ring:0 0 0 3px rgba(209,156,21,.32);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--tx); font-family:var(--ui); font-weight:300; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; font-variant-numeric:lining-nums}
+::selection{background:var(--accent-fill); color:var(--accent-on-fill)}
+:focus-visible{outline:none; box-shadow:var(--ring)}
+b,strong{font-weight:500}
+
+/* barra */
+.topbar{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw); margin:0 auto; padding:10px 24px; display:flex; align-items:center; gap:12px}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:inherit; min-width:0}
+.mark{width:34px; height:34px; flex-shrink:0; border:1px solid var(--line); background:var(--field); color:var(--field-tx); display:grid; place-items:center}
+.mark svg{width:19px; height:19px; display:block}
+.wordmark{display:flex; flex-direction:column; line-height:1.08}
+.wordmark b{font-weight:600; font-size:12px; letter-spacing:.235em; text-transform:uppercase}
+.wordmark span{font-size:9.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--tx-faint); font-weight:400}
+.sp{flex:1}
+.seg{display:flex; border:1px solid var(--line); background:var(--surface)}
+.seg button{border:0; background:transparent; color:var(--tx-dim); font:500 11px/1 var(--ui); letter-spacing:.12em; text-transform:uppercase; padding:10px 12px; cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--field); color:var(--field-tx)}
+.iconbtn{border:1px solid var(--line); background:var(--surface); color:var(--tx-dim); width:34px; height:34px; display:grid; place-items:center; cursor:pointer; padding:0; flex-shrink:0}
+.iconbtn:hover{border-color:var(--accent); color:var(--accent)}
+.iconbtn svg{width:16px; height:16px}
+
+.shell{max-width:var(--maxw); margin:0 auto; padding:0 24px 90px}
+
+/* portada */
+.hero{padding:52px 0 8px}
+.eyebrow{font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin:0 0 16px}
+h1{font-family:var(--display); font-weight:300; font-size:clamp(2.8rem,8vw,4.6rem); line-height:1; letter-spacing:-.015em; margin:0 0 18px}
+h1 em,h2 em{font-style:italic; color:var(--accent)}
+.lede{font-size:18px; color:var(--tx-dim); max-width:56ch; margin:0}
+.lede strong{color:var(--tx)}
+.big-idea{margin:30px 0 0; border:1px solid var(--line); background:var(--field); color:var(--field-tx); padding:22px 24px}
+.big-idea i{display:block; font-style:normal; font-size:10px; letter-spacing:.18em; text-transform:uppercase; opacity:.7; font-weight:500; margin-bottom:6px}
+.big-idea p{font-family:var(--display); font-size:clamp(1.5rem,3.6vw,1.95rem); line-height:1.2; margin:0; font-weight:400}
+
+/* índice */
+.toc{display:flex; flex-wrap:wrap; gap:6px; margin:26px 0 0; padding:0; list-style:none}
+.toc a{display:block; border:1px solid var(--line); background:var(--surface); padding:6px 11px; font-size:12.5px; color:var(--tx-dim); text-decoration:none}
+.toc a:hover{border-color:var(--accent); color:var(--accent)}
+.toc span{color:var(--tx-faint); margin-right:6px; font-weight:500}
+
+/* secciones */
+.sec{padding-top:58px; scroll-margin-top:64px}
+.sec-head{padding-bottom:16px; border-bottom:1px solid var(--line); margin-bottom:22px}
+.sec-n{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; margin:0 0 6px}
+h2{font-family:var(--display); font-weight:300; font-size:clamp(2rem,5vw,2.8rem); line-height:1.05; margin:0}
+.sec-head p{color:var(--tx-dim); margin:8px 0 0; font-size:15px}
+h3{font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--tx-dim); margin:26px 0 10px}
+p{margin:0 0 12px}
+
+/* lo que se dice */
+.say{position:relative; border:1px solid var(--line); border-left:3px solid var(--accent-fill); background:var(--raised); padding:14px 18px 14px 18px; margin:0 0 14px}
+.say::before{content:"Diga"; display:block; font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:4px}
+.say.ask::before{content:"Pregunte"}
+.say.do::before{content:"Haga"}
+.say p{margin:0; font-size:17px; line-height:1.55; color:var(--tx)}
+.say p + p{margin-top:8px}
+.say .alt{display:block; font-size:13px; color:var(--tx-faint); margin-top:6px}
+.note{font-size:14px; color:var(--tx-dim); border-left:1px solid var(--line); padding-left:12px; margin:0 0 14px}
+.note b{color:var(--tx)}
+
+/* listas */
+.check{list-style:none; margin:0 0 12px; padding:0; border:1px solid var(--line); background:var(--surface)}
+.check li{display:flex; gap:12px; padding:11px 16px; border-bottom:1px solid var(--line-soft); font-size:15px; line-height:1.5}
+.check li:last-child{border-bottom:0}
+.check li::before{content:""; flex-shrink:0; width:14px; height:14px; margin-top:4px; border:1.5px solid var(--accent-fill)}
+.check li b{color:var(--tx)}
+
+/* pasos de la demo */
+.steps{display:grid; gap:14px}
+.step{border:1px solid var(--line); background:var(--surface)}
+.step-h{display:flex; gap:14px; align-items:baseline; padding:16px 18px 6px}
+.step-h span{font-family:var(--display); font-size:34px; line-height:1; color:var(--accent); min-width:26px}
+.step-h h4{margin:0; font-size:17px; font-weight:500}
+.step-h small{display:block; font-size:12.5px; color:var(--tx-faint); font-weight:400}
+.step-b{padding:4px 18px 6px 58px}
+.step-b .say{margin-bottom:12px}
+.wow{display:inline-block; background:var(--accent-fill); color:var(--accent-on-fill); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; padding:2px 8px; margin-left:8px; vertical-align:2px}
+
+/* beneficios */
+.ben{width:100%; border-collapse:collapse; border:1px solid var(--line); background:var(--surface)}
+.ben th,.ben td{text-align:left; padding:12px 16px; border-bottom:1px solid var(--line-soft); font-size:15px; vertical-align:top}
+.ben thead th{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); font-weight:500; border-bottom:1px solid var(--line)}
+.ben td:first-child{width:40%; color:var(--tx-dim)}
+.ben td:last-child{color:var(--tx)}
+
+/* precios */
+.price-grid{display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--surface)}
+.pp{padding:16px 18px; border-right:1px solid var(--line-soft)}
+.pp:last-child{border-right:0}
+.pp i{display:block; font-style:normal; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; color:var(--tx-dim)}
+.pp b{display:block; font-family:var(--display); font-size:30px; font-weight:400; line-height:1.15}
+.pp small{font-size:12.5px; color:var(--tx-faint)}
+.pp.rec{background:var(--field); color:var(--field-tx)}
+.pp.rec i,.pp.rec small{color:var(--field-tx); opacity:.85}
+.price-foot{border:1px solid var(--line); border-top:0; background:var(--raised); padding:11px 18px; font-size:14px; color:var(--tx-dim)}
+
+/* objeciones */
+.obj{border:1px solid var(--line); background:var(--surface); margin-bottom:8px}
+.obj summary{cursor:pointer; list-style:none; padding:14px 18px; font-weight:500; display:flex; gap:12px; align-items:center}
+.obj summary::-webkit-details-marker{display:none}
+.obj summary::after{content:"+"; margin-left:auto; font-size:20px; color:var(--accent); font-weight:300; line-height:1}
+.obj[open] summary::after{content:"–"}
+.obj summary q{font-family:var(--display); font-size:21px; font-weight:400; quotes:"“" "”"}
+.obj .say{margin:0 18px 16px}
+
+/* seguimiento */
+.timeline{border:1px solid var(--line); background:var(--surface)}
+.tl{display:grid; grid-template-columns:110px 1fr; border-bottom:1px solid var(--line-soft)}
+.tl:last-child{border-bottom:0}
+.tl > b{padding:14px 16px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border-right:1px solid var(--line-soft)}
+.tl > div{padding:12px 16px; font-size:15px}
+.tl > div p{margin:0}
+.tl .msg{margin-top:6px; background:var(--raised); border:1px solid var(--line-soft); padding:9px 12px; font-size:14.5px; color:var(--tx)}
+
+/* reglas */
+.rules{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.rules > div{border:1px solid var(--line); background:var(--surface); padding:16px 18px}
+.rules h4{margin:0 0 8px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600}
+.rules .yes h4{color:var(--accent)}
+.rules .no h4{color:var(--tx-faint)}
+.rules ul{margin:0; padding-left:18px; font-size:14.5px}
+.rules li{margin-bottom:6px}
+.rules li::marker{color:var(--accent-fill)}
+
+/* producto activo */
+body[data-p="agenda"] .p-menu{display:none!important}
+body[data-p="menu"] .p-agenda{display:none!important}
+
+.foot{border-top:1px solid var(--line); margin-top:60px; padding-top:24px; display:flex; gap:20px; justify-content:space-between; flex-wrap:wrap; align-items:center}
+.foot p{font-size:13px; color:var(--tx-faint); max-width:52ch; margin:0}
+
+@media (max-width:700px){
+  .shell{padding:0 16px 70px}
+  .topbar-in{padding:9px 16px; gap:8px}
+  .wordmark span{display:none}
+  .seg button{padding:10px 9px; letter-spacing:.06em}
+  .step-b{padding:4px 16px 6px 16px}
+  .price-grid{grid-template-columns:1fr}
+  .pp{border-right:0; border-bottom:1px solid var(--line-soft)}
+  .rules{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr}
+  .tl > b{border-right:0; padding-bottom:0}
+  .ben td:first-child{width:auto}
+  .ben thead{display:none}
+  .ben tr{display:block; border-bottom:1px solid var(--line-soft)}
+  .ben td{display:block; border:0; padding:10px 16px 0}
+  .ben td:last-child{padding:2px 16px 12px}
+  .ben td:first-child{font-weight:500; color:var(--tx)}
+  .ben td:last-child{color:var(--tx-dim)}
+}
+@media print{
+  .topbar,.toc{display:none}
+  body{background:#fff; color:#11110F; font-size:10.5pt}
+  :root{--bg:#fff; --surface:#fff; --raised:#f6f4f1}
+  .step,.obj,.say,.tl{break-inside:avoid}
+  .obj .say{display:block}
+  .sec{padding-top:26px}
+}
+</style>
+</head>
+<body data-p="agenda">
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 2.6v18.8" stroke="currentColor" stroke-width="1.5"/><text x="13.2" y="18.4" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="19" font-weight="500" fill="currentColor">B</text></svg></span>
+      <span class="wordmark"><b>BlackScale</b><span>Guion de visita</span></span>
+    </a>
+    <span class="sp"></span>
+    <div class="seg" role="group" aria-label="Producto">
+      <button type="button" data-set="agenda" aria-pressed="true">Agenda</button>
+      <button type="button" data-set="menu" aria-pressed="false">Pedidos QR</button>
+    </div>
+    <button class="iconbtn" id="themeBtn" type="button" title="Cambiar tema" aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main class="shell" id="top">
+  <section class="hero">
+    <p class="eyebrow">BlackScale · Para el equipo comercial · Visita en persona</p>
+    <h1>Guion de <em>visita</em></h1>
+    <p class="lede">Una visita de <strong>10 a 15 minutos</strong> con el demo ya armado para el negocio. Arriba elija el producto: <strong>Agenda</strong> (citas) o <strong>Pedidos QR</strong> (restaurantes, cafés, bares). El guion cambia solo.</p>
+    <div class="big-idea">
+      <i>La idea que todo el guion repite</i>
+      <p class="p-agenda">No vendemos un programa. Vendemos <em>citas que sí llegan</em>, la agenda llena y al dueño sin pegarse al WhatsApp todo el día.</p>
+      <p class="p-menu">No vendemos un programa. Vendemos <em>mesas que rotan más rápido</em>, pedidos sin errores y meseros que venden en vez de anotar.</p>
+    </div>
+    <ul class="toc">
+      <li><a href="#antes"><span>1</span>Antes</a></li>
+      <li><a href="#apertura"><span>2</span>Apertura</a></li>
+      <li><a href="#preguntas"><span>3</span>Preguntas</a></li>
+      <li><a href="#demo"><span>4</span>Demo</a></li>
+      <li><a href="#beneficios"><span>5</span>Beneficios</a></li>
+      <li><a href="#precio"><span>6</span>Precio y cierre</a></li>
+      <li><a href="#objeciones"><span>7</span>Objeciones</a></li>
+      <li><a href="#seguimiento"><span>8</span>Seguimiento</a></li>
+      <li><a href="#reglas"><span>9</span>Reglas</a></li>
+    </ul>
+  </section>
+
+  <!-- 1 · ANTES -->
+  <section class="sec" id="antes">
+    <div class="sec-head">
+      <p class="sec-n">Paso 1 · 10 minutos antes</p>
+      <h2>Antes de <em>entrar</em></h2>
+      <p>Nunca llegue con un demo genérico. El dueño tiene que ver <b>su nombre, su logo y sus servicios</b>.</p>
+    </div>
+    <ul class="check">
+      <li class="p-agenda"><span>Arme el demo en el <b>Studio</b> (pestaña Agendas): nombre del negocio, nombre del dueño, tipo de negocio, color y logo de su Instagram. Copie el link.</span></li>
+      <li class="p-menu"><span>Arme el demo en el <b>Studio</b> (pestaña Restaurantes): nombre del sitio, nombre del dueño, tipo (restaurante, café, bar, comidas rápidas), color y logo. Copie el link.</span></li>
+      <li><span>Ábralo en <b>su celular o tablet</b> con batería al 100% y datos encendidos. No dependa del WiFi del negocio.</span></li>
+      <li class="p-agenda"><span>Deje abierta la pantalla <b>Hoy</b>. Revise que la página <b>Reserva en línea</b> muestre el código QR.</span></li>
+      <li class="p-menu"><span>Deje abierta la pantalla <b>Pedidos</b> (tablero de cocina). Revise que la pestaña <b>Mesas</b> muestre los QR.</span></li>
+      <li><span>Mire su Instagram o Google 2 minutos: ¿cómo reciben citas o pedidos hoy? ¿Tienen quejas de "nadie contesta" o "demoran mucho"? Eso le da su primera frase.</span></li>
+      <li class="p-agenda"><span><b>Hora de visita:</b> martes a jueves, de 9:30 a 11:30 a.m. o de 2:00 a 4:00 p.m. Nunca sábados ni fines de quincena (están llenos).</span></li>
+      <li class="p-menu"><span><b>Hora de visita:</b> entre 3:00 y 5:00 p.m., después del almuerzo y antes de la cena. Nunca a mediodía ni viernes en la noche.</span></li>
+    </ul>
+    <p class="note"><b>Importante:</b> para que no le cuenten las visitas propias como "aperturas" en el seguimiento, abra el demo desde el mismo celular donde usa el Studio.</p>
+  </section>
+
+  <!-- 2 · APERTURA -->
+  <section class="sec" id="apertura">
+    <div class="sec-head">
+      <p class="sec-n">Paso 2 · Los primeros 30 segundos</p>
+      <h2>La <em>apertura</em></h2>
+      <p>Pida hablar con el dueño por su nombre. Si no está, pregunte a qué hora vuelve y regrese: el empleado no compra.</p>
+    </div>
+    <div class="say">
+      <p class="p-agenda">"Buenos días, ¿usted es [nombre]? Mucho gusto, soy [su nombre], de BlackScale. Le voy a robar solo 5 minutos. Le armé algo a <b>[nombre del negocio]</b> y quería que usted fuera el primero en verlo."</p>
+      <p class="p-menu">"Buenas tardes, ¿usted es [nombre]? Mucho gusto, soy [su nombre], de BlackScale. Le voy a robar solo 5 minutos. Le armé algo a <b>[nombre del restaurante]</b> y quería que usted fuera el primero en verlo."</p>
+    </div>
+    <div class="say do">
+      <p>Gire el celular hacia él. Que vea la pantalla de bienvenida con <b>su nombre y su logo</b>. No hable durante 3 segundos: deje que lo lea.</p>
+    </div>
+    <div class="say">
+      <p class="p-agenda">"Esta es la agenda de <b>[negocio]</b>. Sus clientes reservan solos, a cualquier hora, y les llega recordatorio por WhatsApp para que no le fallen. ¿Le muestro cómo funciona? Son 5 minutos."</p>
+      <p class="p-menu">"Esta es la carta digital de <b>[restaurante]</b>. El cliente escanea un QR en la mesa, pide desde el celular y el pedido le llega directo a la cocina. ¿Le muestro cómo funciona? Son 5 minutos."</p>
+    </div>
+    <p class="note"><b>Si dice "ahora no puedo":</b> "Tranquilo. ¿Le parece mejor hoy a las [hora] o mañana a primera hora?" Siempre dé dos opciones de hora, nunca "¿cuándo puede?".</p>
+  </section>
+
+  <!-- 3 · PREGUNTAS -->
+  <section class="sec" id="preguntas">
+    <div class="sec-head">
+      <p class="sec-n">Paso 3 · 2 minutos</p>
+      <h2>Tres <em>preguntas</em></h2>
+      <p>Pregunte antes de mostrar. Anote los números: los va a usar en la calculadora y en el cierre.</p>
+    </div>
+    <div class="p-agenda">
+      <div class="say ask"><p>"¿Hoy cómo le piden las citas? ¿WhatsApp, llamada, cuaderno?"</p></div>
+      <div class="say ask"><p>"En una semana normal, ¿cuántos clientes le quedan mal, que no llegan o cancelan a última hora?"<span class="alt">Haga la cuenta en voz alta: "O sea que son unos [X] clientes al mes. A [precio promedio], eso es plata que se le va."</span></p></div>
+      <div class="say ask"><p>"¿Y cuánto tiempo al día se le va a usted, o a alguien, contestando WhatsApp para cuadrar citas?"</p></div>
+    </div>
+    <div class="p-menu">
+      <div class="say ask"><p>"En hora pico, ¿cuánto se demora un mesero en tomar el pedido de una mesa nueva?"</p></div>
+      <div class="say ask"><p>"¿Le pasa que se equivocan con un pedido o que algo no se cobra?"<span class="alt">Casi todos dicen que sí. Sonría: "A todos les pasa. Eso es lo que esto arregla."</span></p></div>
+      <div class="say ask"><p>"¿Cuántas mesas tiene y cuánto es el consumo promedio por mesa?"</p></div>
+    </div>
+    <p class="note">Escuche más de lo que habla. Si se queja de algo, repítalo con sus palabras: <b>"Entonces lo que más le duele es [su problema]."</b> Todo lo que muestre después lo conecta con ese dolor.</p>
+  </section>
+
+  <!-- 4 · DEMO -->
+  <section class="sec" id="demo">
+    <div class="sec-head">
+      <p class="sec-n">Paso 4 · 5 minutos</p>
+      <h2>La demo en <em>cuatro momentos</em></h2>
+      <p>Muestre poco y que él lo toque. El momento más fuerte es cuando <b>él mismo</b> hace la prueba con su celular.</p>
+    </div>
+
+    <div class="steps p-agenda">
+      <div class="step">
+        <div class="step-h"><span>1</span><div><h4>"Así se ve su día"</h4><small>Pantalla Hoy</small></div></div>
+        <div class="step-b">
+          <div class="say"><p>"Cada mañana usted abre esto y ve quién viene, a qué hora y con quién. Si alguien no ha confirmado, se ve de una vez."</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>2</span><div><h4>"Haga una reserva usted mismo" <span class="wow">El momento clave</span></h4><small>Reserva en línea → código QR</small></div></div>
+        <div class="step-b">
+          <div class="say do"><p>Abra <b>Reserva en línea</b> y muéstrele el QR. Que lo escanee con <b>su propio celular</b> y aparte una cita de prueba.</p></div>
+          <div class="say"><p>"Escanéelo y sáquese una cita, como si fuera su cliente."</p><p>Cuando la confirme, en su pantalla aparece el aviso: <b>"Nueva reserva en línea"</b>. Señálelo:</p><p>"¿Vio? Usted no contestó ningún WhatsApp y la cita ya quedó en la agenda. Eso pasa a las 11 de la noche o un domingo, mientras usted descansa."</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>3</span><div><h4>"El cliente ya no se le olvida"</h4><small>Abrir una cita → botón de WhatsApp · Automatizaciones</small></div></div>
+        <div class="step-b">
+          <div class="say"><p>"Un día antes y dos horas antes, al cliente le llega su recordatorio por WhatsApp y confirma con un toque. Si cancela, el espacio se le ofrece a otro de la lista de espera."</p><p>"Y si alguien no vuelve en un tiempo, el sistema le escribe para que vuelva a agendar. Eso es plata que hoy se le está quedando quieta."</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>4</span><div><h4>"Hagamos la cuenta con sus números"</h4><small>Tu ahorro</small></div></div>
+        <div class="step-b">
+          <div class="say do"><p>Abra <b>Tu ahorro</b> y ponga los números que él le dio en las preguntas: citas por semana, precio promedio, cuántos le fallan.</p></div>
+          <div class="say"><p>"Con lo que usted me dijo, esto le recupera unos <b>[valor]</b> al mes. Y fíjese que la cuenta es conservadora: estoy suponiendo que solo recupera menos de la mitad de los que le fallan."</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps p-menu">
+      <div class="step">
+        <div class="step-h"><span>1</span><div><h4>"Así ve la carta su cliente"</h4><small>Vista del cliente</small></div></div>
+        <div class="step-b">
+          <div class="say"><p>"El cliente se sienta, escanea el QR de la mesa y le sale esta carta con fotos, con su logo. Nada de cartas sucias ni desactualizadas: si se acaba un plato, usted lo apaga con un toque."</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>2</span><div><h4>"Pida algo usted mismo" <span class="wow">El momento clave</span></h4><small>Vista del cliente → Pedidos</small></div></div>
+        <div class="step-b">
+          <div class="say do"><p>Pásele <b>su</b> celular o tablet en la Vista del cliente. Que arme un pedido (con adiciones, si hay) y lo envíe. Luego vaya a <b>Pedidos</b> y muéstrele que llegó a la cocina.</p></div>
+          <div class="say"><p>"¿Vio? Llegó a la cocina con la mesa, lo que pidió y las notas. Nadie lo anotó y nadie se equivocó. Su mesero no tuvo que ir hasta la mesa."</p></div>
+          <p class="note">Por ahora el pedido de prueba se hace en <b>el mismo equipo</b> del demo. Si el dueño escanea un QR de mesa con su celular, ve la carta, pero el pedido no le llega a su pantalla.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>3</span><div><h4>"Llamar al mesero y pedir la cuenta"</h4><small>Vista del cliente · Mesas</small></div></div>
+        <div class="step-b">
+          <div class="say"><p>"Si la mesa necesita algo, toca un botón y en caja ve: Mesa 4 llama al mesero. Para pagar igual: pide la cuenta y puede pagar con Nequi o Daviplata. La mesa se libera más rápido y entra otra."</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span>4</span><div><h4>"Hagamos la cuenta con sus números"</h4><small>Tu ahorro</small></div></div>
+        <div class="step-b">
+          <div class="say do"><p>Abra <b>Tu ahorro</b> y ponga sus mesas, su consumo promedio y cuánto se demoran en tomar el pedido.</p></div>
+          <div class="say"><p>"Solo con que cada cliente pida una adición más, porque ve las fotos, y que las mesas roten un poquito más rápido, esto le deja unos <b>[valor]</b> al mes. La cuenta es conservadora."</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · BENEFICIOS -->
+  <section class="sec" id="beneficios">
+    <div class="sec-head">
+      <p class="sec-n">Paso 5 · Durante toda la demo</p>
+      <h2>Hable de <em>beneficios</em>, no de funciones</h2>
+      <p>El dueño no compra "recordatorios automáticos". Compra que su silla no esté vacía. Use la columna derecha.</p>
+    </div>
+    <table class="ben p-agenda">
+      <thead><tr><th>Lo que hace</th><th>Lo que usted le dice</th></tr></thead>
+      <tbody>
+        <tr><td>Reserva en línea 24/7</td><td>"Le entran citas mientras duerme. El link va en su Instagram, Google y WhatsApp."</td></tr>
+        <tr><td>Recordatorios por WhatsApp</td><td>"Menos clientes que le fallan. Cada uno que llega es plata que antes perdía."</td></tr>
+        <tr><td>Lista de espera</td><td>"Si alguien cancela, el espacio se llena solo. No queda la silla vacía."</td></tr>
+        <tr><td>Agenda por profesional</td><td>"Cada empleado ve su día. Se acaban los cruces y el 'yo no sabía'."</td></tr>
+        <tr><td>Ficha de cada cliente</td><td>"Sabe qué se hizo, cuándo vino y qué le gusta. El cliente siente que lo conocen."</td></tr>
+        <tr><td>Recordatorio para volver</td><td>"El sistema le escribe al que no ha vuelto. Clientes que regresan sin que usted haga nada."</td></tr>
+        <tr><td>Reportes</td><td>"Sabe cuánto vendió, qué servicio deja más y quién trabaja más. Sin hacer cuentas a mano."</td></tr>
+        <tr><td>Configuración e implementación</td><td>"Nosotros le dejamos todo montado en 72 horas, con sus servicios y su marca. Usted no tiene que aprender nada difícil."</td></tr>
+      </tbody>
+    </table>
+    <table class="ben p-menu">
+      <thead><tr><th>Lo que hace</th><th>Lo que usted le dice</th></tr></thead>
+      <tbody>
+        <tr><td>Pedido desde el QR de la mesa</td><td>"El cliente pide apenas se sienta. No espera al mesero, no se aburre, consume más."</td></tr>
+        <tr><td>Pedido directo a cocina</td><td>"Cero errores al anotar y cero platos que se quedan sin cobrar."</td></tr>
+        <tr><td>Carta con fotos y adiciones</td><td>"Las fotos venden. Cada adición y cada bebida extra es más plata por mesa."</td></tr>
+        <tr><td>Llamar al mesero y pedir la cuenta</td><td>"La mesa se libera más rápido. En hora pico eso es una o dos mesas más."</td></tr>
+        <tr><td>Apagar platos agotados</td><td>"Nunca más el 'uy, eso se acabó'. La carta siempre está al día."</td></tr>
+        <tr><td>Tablero de mesas y ventas</td><td>"Sabe en tiempo real qué mesa está ocupada, cuánto lleva vendido y qué es lo que más sale."</td></tr>
+        <tr><td>Configuración e implementación</td><td>"Le cargamos la carta, le entregamos los QR en acrílico para las mesas y le enseñamos al equipo. Listo en 72 horas."</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6 · PRECIO Y CIERRE -->
+  <section class="sec" id="precio">
+    <div class="sec-head">
+      <p class="sec-n">Paso 6 · 3 minutos</p>
+      <h2>Precio y <em>cierre</em></h2>
+      <p>Dé el precio <b>después</b> de la calculadora, nunca antes. Recomiende siempre el plan del medio.</p>
+    </div>
+    <div class="p-agenda">
+      <div class="price-grid">
+        <div class="pp"><i>Esencial</i><b>$149.000</b><small>al mes · 1 a 2 profesionales</small></div>
+        <div class="pp rec"><i>Pro · recomendado</i><b>$249.000</b><small>al mes · 3 a 6 profesionales</small></div>
+        <div class="pp"><i>Premium</i><b>$399.000</b><small>al mes · ilimitado y varias sedes</small></div>
+      </div>
+      <p class="price-foot">Implementación única de $600.000. Valores más IVA.</p>
+    </div>
+    <div class="p-menu">
+      <div class="price-grid">
+        <div class="pp"><i>Esencial</i><b>$249.000</b><small>al mes · hasta 15 mesas</small></div>
+        <div class="pp rec"><i>Pro · recomendado</i><b>$399.000</b><small>al mes · hasta 30 mesas</small></div>
+        <div class="pp"><i>Premium</i><b>$599.000</b><small>al mes · ilimitado y varias sedes</small></div>
+      </div>
+      <p class="price-foot">Implementación única de $900.000, con los QR en acrílico para las mesas. Valores más IVA.</p>
+    </div>
+
+    <h3>Cómo decir el precio</h3>
+    <div class="say">
+      <p class="p-agenda">"Para un negocio como el suyo le recomiendo el plan Pro: <b>$249.000 al mes</b>. Son unos $8.000 al día. Con que <b>un solo cliente</b> al mes deje de fallarle, ya se pagó."</p>
+      <p class="p-menu">"Para un sitio como el suyo le recomiendo el plan Pro: <b>$399.000 al mes</b>. Son unos $13.000 al día. Con que <b>dos o tres mesas</b> al día pidan una bebida más, ya se pagó."</p>
+      <p>"Y usted no se arriesga: tiene <b>garantía de 60 días</b>. Si en ese tiempo no le recupera al menos lo que cuesta, el tercer mes no se lo cobramos."</p>
+    </div>
+    <p class="note">Después de decir el precio, <b>quédese callado</b>. El primero que habla, pierde. Deje que él responda.</p>
+
+    <h3>El cierre</h3>
+    <div class="say ask">
+      <p>"¿Le parece si lo dejamos funcionando esta semana? Yo le cargo sus servicios y en 72 horas ya puede compartir el link. ¿Arrancamos el lunes o el miércoles?"</p>
+    </div>
+    <div class="say do">
+      <p>Si dice que sí: en el demo toque <b>Quiero activarlo</b>, elija el plan y envíe el WhatsApp a Daniel Acosta desde ahí, delante de él. Así queda registrado y Daniel le escribe para el pago y la implementación.</p>
+    </div>
+    <ul class="check">
+      <li><span><b>Plan anual:</b> paga 10 meses y recibe 12, y la implementación queda con 50% de descuento. Úselo solo si lo pide más barato.</span></li>
+      <li><span><b>Permanencia:</b> mínimo 3 meses. Después cancela con 30 días de aviso.</span></li>
+      <li><span><b>Medios de pago:</b> transferencia, PSE, Nequi, Daviplata o tarjeta. Con factura electrónica.</span></li>
+      <li><span><b>Referidos:</b> por cada negocio que recomiende y contrate, un mes gratis. Dígalo al final, siempre.</span></li>
+    </ul>
+  </section>
+
+  <!-- 7 · OBJECIONES -->
+  <section class="sec" id="objeciones">
+    <div class="sec-head">
+      <p class="sec-n">Paso 7 · Si aparecen</p>
+      <h2>Respuestas a <em>objeciones</em></h2>
+      <p>Primero dele la razón ("lo entiendo"), después responda con una pregunta. Nunca discuta.</p>
+    </div>
+    <details class="obj"><summary><q>Está muy caro</q></summary>
+      <div class="say"><p class="p-agenda">"Lo entiendo. ¿Caro comparado con qué? Usted me dijo que le fallan unos [X] clientes al mes. Eso son [valor] que hoy se pierden. Esto cuesta $249.000. Si no le recupera eso, tiene la garantía."</p><p class="p-menu">"Lo entiendo. ¿Caro comparado con qué? Un mesero le cuesta más de $1.500.000 al mes. Esto le ayuda a que el que tiene atienda más mesas, y cuesta $399.000. Si no se paga solo, tiene la garantía."</p></div>
+    </details>
+    <details class="obj"><summary><q>Déjeme pensarlo</q></summary>
+      <div class="say"><p>"Claro, es su decisión. Para ayudarle a pensarlo: ¿qué es lo que le genera duda, el precio o si sus clientes lo van a usar?" Responda esa duda puntual. Si sigue, cuadre: "Le dejo el demo en su WhatsApp para que lo vea con calma. ¿Le parece si paso el jueves a las 10 y lo resolvemos?"</p></div>
+    </details>
+    <details class="obj"><summary><q>Yo ya manejo todo por WhatsApp o en cuaderno</q></summary>
+      <div class="say"><p class="p-agenda">"Y le ha funcionado, por eso tiene clientes. Lo que esto hace es quitarle el trabajo de contestar uno por uno. Sus clientes siguen usando WhatsApp: ahí les llega el recordatorio. Usted solo deja de ser la secretaria."</p><p class="p-menu">"Y le ha funcionado. Esto no reemplaza a sus meseros, les quita lo de anotar para que atiendan mejor y vendan más. Si un cliente prefiere pedirle al mesero, lo hace igual."</p></div>
+    </details>
+    <details class="obj"><summary><q>Mis clientes no usan eso</q></summary>
+      <div class="say"><p class="p-agenda">"¿Sus clientes usan WhatsApp? Entonces lo usan. Es un link, no hay que descargar nada. Y usted mismo acaba de hacer una cita en menos de un minuto."</p><p class="p-menu">"¿Sus clientes tienen celular con cámara? Entonces lo usan. Es escanear y pedir, no hay que descargar nada. Usted mismo acaba de hacer un pedido en menos de un minuto."</p></div>
+    </details>
+    <details class="obj"><summary><q>Tengo que hablarlo con mi socio o mi esposa</q></summary>
+      <div class="say"><p>"Perfecto, es lo correcto. ¿Qué cree que le va a preguntar? Así se lo dejo resuelto." Luego: "¿Podemos vernos los tres mañana 10 minutos? Les muestro la prueba a los dos." Deje el demo en el WhatsApp del dueño para que se lo muestre.</p></div>
+    </details>
+    <details class="obj"><summary><q>Hay otros más baratos</q></summary>
+      <div class="say"><p>"Sí los hay, y le cobran en dólares, usted lo configura solo y el soporte es por correo en otro idioma. Aquí se lo dejamos montado con su marca, le enseñamos al equipo y nos escribe por WhatsApp a una persona que le contesta. Sin comisiones por venta."</p></div>
+    </details>
+    <details class="obj"><summary><q>¿Y si no me funciona?</q></summary>
+      <div class="say"><p>"Para eso está la garantía de 60 días. Si en ese tiempo no le recupera al menos lo que cuesta, el tercer mes no se lo cobramos. El riesgo lo corremos nosotros."</p></div>
+    </details>
+  </section>
+
+  <!-- 8 · SEGUIMIENTO -->
+  <section class="sec" id="seguimiento">
+    <div class="sec-head">
+      <p class="sec-n">Paso 8 · Si no cierra hoy</p>
+      <h2>El <em>seguimiento</em></h2>
+      <p>Un "no" hoy no es un "no" para siempre. La mayoría de ventas se cierran en la segunda o tercera conversación.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl"><b>Antes de irse</b><div><p>Pídale su WhatsApp y envíele el link del demo ahí mismo. Cuadre fecha y hora de la próxima visita o llamada.</p></div></div>
+      <div class="tl"><b>Mismo día</b><div><p>Mensaje corto:</p><p class="msg">"Hola [nombre], gracias por su tiempo hoy. Aquí le dejo la agenda de [negocio] para que la vea con calma: [link]. Cualquier duda me escribe."</p></div></div>
+      <div class="tl"><b>Día 2 o 3</b><div><p>Revise en <b>Seguimiento</b> (en el Studio, o pregúntele a Daniel) si abrió el link o usó la calculadora. Si lo abrió, escriba:</p><p class="msg">"Hola [nombre], vi que estuvo mirando la agenda. ¿Qué le pareció? ¿Le resuelvo alguna duda?"</p></div></div>
+      <div class="tl"><b>Día 7</b><div><p>Pase en persona, en la hora tranquila. Lleve una sola cosa nueva: un dato, un caso de otro negocio parecido o la cuenta con sus números.</p></div></div>
+      <div class="tl"><b>Día 14</b><div><p>Último mensaje, sin presión:</p><p class="msg">"Hola [nombre], no le quiero quitar más tiempo. Si en algún momento quiere dejar de perder citas, aquí estoy. El demo sigue activo para usted."</p></div></div>
+    </div>
+  </section>
+
+  <!-- 9 · REGLAS -->
+  <section class="sec" id="reglas">
+    <div class="sec-head">
+      <p class="sec-n">Paso 9 · Siempre</p>
+      <h2>Reglas de <em>oro</em></h2>
+    </div>
+    <div class="rules">
+      <div class="yes">
+        <h4>Siempre</h4>
+        <ul>
+          <li>Llegue con el demo armado con su nombre y su logo.</li>
+          <li>Haga que él toque la pantalla y haga la prueba.</li>
+          <li>Use sus números, no los nuestros.</li>
+          <li>Hable en pesos y en clientes, no en funciones.</li>
+          <li>Termine cada visita con una fecha cuadrada.</li>
+          <li>Pida referidos al final, compre o no compre.</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h4>Nunca</h4>
+        <ul>
+          <li>Visitar en hora pico o con clientes esperando.</li>
+          <li>Dar el precio antes de la demo.</li>
+          <li>Inventar funciones, clientes o resultados.</li>
+          <li>Hablar mal de la competencia.</li>
+          <li>Usar palabras técnicas: "software", "plataforma", "sistema en la nube".</li>
+          <li>Irse sin dejar el link en su WhatsApp.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <a class="brand" href="#top" style="opacity:.8">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 2.6v18.8" stroke="currentColor" stroke-width="1.5"/><text x="13.2" y="18.4" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="19" font-weight="500" fill="currentColor">B</text></svg></span>
+      <span class="wordmark"><b>BlackScale</b><span>Uso interno</span></span>
+    </a>
+    <p>Documento interno del equipo comercial. Precios en pesos colombianos, más IVA. Dudas sobre una venta: Daniel Acosta, +57 313 666 2777.</p>
+  </footer>
+</main>
+
+<script>
+const root = document.documentElement;
+const body = document.body;
+const btns = document.querySelectorAll('.seg button');
+function setP(p) {
+  body.dataset.p = p;
+  btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.set === p)));
+  try { localStorage.setItem('bs-guion-p', p); } catch (e) {}
+}
+btns.forEach((b) => b.addEventListener('click', () => setP(b.dataset.set)));
+const fromUrl = new URLSearchParams(location.search).get('p');
+let saved = null;
+try { saved = localStorage.getItem('bs-guion-p'); } catch (e) {}
+setP(fromUrl === 'menu' || fromUrl === 'agenda' ? fromUrl : saved === 'menu' ? 'menu' : 'agenda');
+
+try { const t = localStorage.getItem('bs-guion-theme'); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('bs-guion-theme', root.dataset.theme); } catch (e) {}
+});
+window.addEventListener('beforeprint', () => document.querySelectorAll('.obj').forEach((d) => (d.open = true)));
+</script>
+</body>
+</html>
