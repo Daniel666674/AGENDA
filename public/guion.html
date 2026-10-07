@@ -115,7 +115,7 @@ p{margin:0 0 12px}
 .steps{display:grid; gap:14px}
 .step{border:1px solid var(--line); background:var(--surface)}
 .step-h{display:flex; gap:14px; align-items:baseline; padding:16px 18px 6px}
-.step-h span{font-family:var(--display); font-size:34px; line-height:1; color:var(--accent); min-width:26px}
+.step-h > span{font-family:var(--display); font-size:34px; line-height:1; color:var(--accent); min-width:26px}
 .step-h h4{margin:0; font-size:17px; font-weight:500}
 .step-h small{display:block; font-size:12.5px; color:var(--tx-faint); font-weight:400}
 .step-b{padding:4px 18px 6px 58px}
@@ -195,7 +195,7 @@ body[data-p="menu"] .p-agenda{display:none!important}
   .ben td:last-child{color:var(--tx-dim)}
 }
 @media print{
-  .topbar,.toc{display:none}
+  .topbar,.toc,.screen-only{display:none}
   body{background:#fff; color:#11110F; font-size:10.5pt}
   :root{--bg:#fff; --surface:#fff; --raised:#f6f4f1}
   .step,.obj,.say,.tl{break-inside:avoid}
@@ -225,7 +225,7 @@ body[data-p="menu"] .p-agenda{display:none!important}
   <section class="hero">
     <p class="eyebrow">BlackScale · Para el equipo comercial · Visita en persona</p>
     <h1>Guion de <em>visita</em></h1>
-    <p class="lede">Una visita de <strong>10 a 15 minutos</strong> con el demo ya armado para el negocio. Arriba elija el producto: <strong>Agenda</strong> (citas) o <strong>Pedidos QR</strong> (restaurantes, cafés, bares). El guion cambia solo.</p>
+    <p class="lede">Una visita de <strong>10 a 15 minutos</strong> con el demo ya armado para el negocio.<span class="screen-only"> Arriba elija el producto: <strong>Agenda</strong> (citas) o <strong>Pedidos QR</strong> (restaurantes, cafés, bares). El guion cambia solo.</span></p>
     <div class="big-idea">
       <i>La idea que todo el guion repite</i>
       <p class="p-agenda">No vendemos un programa. Vendemos <em>citas que sí llegan</em>, la agenda llena y al dueño sin pegarse al WhatsApp todo el día.</p>
