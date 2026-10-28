@@ -1,274 +1,281 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Propuesta Canchas Confort · BlackScale</title>
+<title>Propuesta Canchas Confort · BlackScale Consulting</title>
 <style>
-@font-face{font-family:Anton;src:url(anton-latin-400-normal.woff2)}
-@font-face{font-family:Manrope;font-weight:400;src:url(manrope-latin-400-normal.woff2)}
-@font-face{font-family:Manrope;font-weight:600;src:url(manrope-latin-600-normal.woff2)}
-@font-face{font-family:Manrope;font-weight:700;src:url(manrope-latin-700-normal.woff2)}
-@font-face{font-family:Manrope;font-weight:800;src:url(manrope-latin-800-normal.woff2)}
-:root{--y:#F2B705;--ys:#FFF7DC;--yt:#8A6400;--k:#15171C;--tx:#23262D;--mu:#5F6672;--line:#E6E7EA;--bg:#F6F7F9;--g:#0E9F6E;--gs:#E7F7F0;--bs:#551C25}
+/* ============================================================
+   BLACKSCALE CONSULTING S.A.S. · Propuesta comercial
+   PANTONE 4102 #551C25 · Black #11110F · 7555 #D19C15 · Cool Gray 1 #D7D2CB
+   Juana Light → Cormorant Garamond · Poppins
+   ============================================================ */
+@font-face{font-family:"Cormorant Garamond";font-weight:300;src:url(cormorant-garamond-latin-300-normal.woff2)}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;src:url(cormorant-garamond-latin-400-normal.woff2)}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;src:url(cormorant-garamond-latin-400-italic.woff2)}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;src:url(cormorant-garamond-latin-500-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:300;src:url(poppins-latin-300-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:400;src:url(poppins-latin-400-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:500;src:url(poppins-latin-500-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:600;src:url(poppins-latin-600-normal.woff2)}
+:root{
+  --caoba:#551C25;--oro:#D19C15;--negro:#11110F;--gris:#D7D2CB;
+  --paper:#FFFFFF;--soft:#F4F2EF;--raised:#EFEDE9;--line:#DDD8D1;--line-soft:#E9E5E0;
+  --tx:#11110F;--dim:#5C564E;--faint:#847D73;
+  --ui:Poppins,-apple-system,"Segoe UI",sans-serif;--display:"Cormorant Garamond",Georgia,serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Manrope,sans-serif;color:var(--tx);background:#fff;font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
-.page{max-width:900px;margin:0 auto;padding:0 40px}
-.d{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:1.02}
-.logo{border-radius:50%;background:#fff url(../../src/../descargas/canchas-confort/logo.webp) no-repeat}
-b,strong{font-weight:800}
-/* portada */
-.cover{background:var(--bg);border-bottom:1px solid var(--line)}
-.cover .page{padding-top:40px;padding-bottom:56px}
-.from{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--mu);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.from span b{color:var(--bs)}
-.cover h1{font-size:64px;margin:56px 0 18px;color:var(--k)}
-.cover h1 em{font-style:normal;color:#C99700}
-.cover p.lead{font-size:19px;color:var(--mu);max-width:640px}
-.cover .meta{display:flex;gap:0;margin-top:34px;border:1px solid var(--line);background:#fff;border-radius:10px;overflow:hidden}
-.cover .meta div{flex:1;padding:14px 18px;border-right:1px solid var(--line);font-size:13px;color:var(--mu)}
-.cover .meta div:last-child{border:0}
-.cover .meta b{display:block;color:var(--tx);font-size:15px}
-.hero-img{margin-top:36px;border-radius:12px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(16,24,40,.12);width:100%;display:block}
-/* secciones */
-section{padding:60px 0 0}
-.n{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#B58700}
-h2{font-size:40px;color:var(--k);margin:8px 0 16px}
-h3{font-size:18px;font-weight:800;margin:0 0 6px;color:var(--k)}
+body{font-family:var(--ui);font-weight:300;color:var(--tx);background:var(--paper);font-size:14.5px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+b,strong{font-weight:500}
+.page{max-width:900px;margin:0 auto;padding:0 44px}
+.mark{width:40px;height:40px;background:var(--caoba);color:#EFEDE9;display:grid;place-items:center;flex-shrink:0}
+.mark svg{width:22px;height:22px}
+.wm{display:flex;flex-direction:column;line-height:1.1}
+.wm b{font-weight:600;font-size:13px;letter-spacing:.235em;text-transform:uppercase}
+.wm span{font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--faint);font-weight:400;margin-top:3px}
+.brand{display:flex;align-items:center;gap:12px}
+.eyebrow{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);font-weight:500}
+h1,h2{font-family:var(--display);font-weight:300;letter-spacing:-.01em;color:var(--tx)}
+h1 em,h2 em{font-style:italic;color:var(--caoba)}
+h3{font-size:15px;font-weight:500;margin:0 0 4px;color:var(--tx)}
 p{margin:0 0 12px}
-.mu{color:var(--mu)}
-.quote{border-left:4px solid var(--y);background:var(--ys);padding:16px 20px;border-radius:0 10px 10px 0;font-size:17px;font-weight:600;color:var(--k);margin:18px 0}
-/* problemas */
-.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-.prob{border:1px solid var(--line);border-radius:12px;padding:18px}
-.prob i{font-style:normal;display:inline-block;font-size:12px;font-weight:800;color:#B4232F;background:#FDECEE;border-radius:6px;padding:2px 8px;margin-bottom:10px}
-.prob p{font-size:14.5px;color:var(--mu);margin:0}
-/* embudo */
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.st{padding:22px 20px;border-right:1px solid var(--line);position:relative;background:#fff}
-.st:last-child{border:0}
-.st .k{font-family:Anton;font-size:44px;color:var(--y);line-height:1}
-.st h3{margin-top:8px}
-.st p{font-size:14px;color:var(--mu);margin:0}
-.st .tool{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:800;background:var(--k);color:#fff;border-radius:6px;padding:3px 9px}
-.loop{margin-top:12px;text-align:center;font-size:13.5px;font-weight:700;color:var(--mu)}
-.loop b{color:var(--k)}
-/* bloques producto */
-.prod{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin-top:28px}
-.prod.rev > :first-child{order:2}
-.prod img{width:100%;border-radius:10px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(16,24,40,.1);display:block}
-ul.ck{list-style:none;margin:12px 0 0}
-ul.ck li{padding:6px 0 6px 30px;position:relative;font-size:14.5px}
-ul.ck li::before{content:"✓";position:absolute;left:0;top:7px;width:20px;height:20px;border-radius:50%;background:var(--y);color:var(--k);font-size:11px;font-weight:800;display:grid;place-items:center}
-ul.ck li b{color:var(--k)}
-.why{margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;font-size:13.5px;color:var(--mu)}
-.why b{color:var(--k)}
-.wide{margin-top:24px}
-.wide img{width:100%;border-radius:10px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(16,24,40,.1);display:block}
-.cap{font-size:12.5px;color:var(--mu);margin-top:8px;text-align:center}
-/* ley */
-.law{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-.law div{border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:12px}
-.law i{font-style:normal;flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--gs);color:var(--g);display:grid;place-items:center;font-weight:800}
-.law p{font-size:14px;color:var(--mu);margin:0}
-.law b{display:block;color:var(--k);font-size:14.5px}
-/* numeros */
-.calc{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:20px}
-.calc table{width:100%;border-collapse:collapse}
-.calc td{padding:13px 20px;border-bottom:1px solid var(--line);font-size:14.5px}
-.calc td:last-child{text-align:right;font-weight:800;white-space:nowrap}
-.calc tr.t td{background:var(--k);color:#fff;font-size:16px;border:0}
-.calc tr.t td:last-child{color:var(--y)}
-.small{font-size:12.5px;color:var(--mu);margin-top:10px}
-/* timeline */
-.tl{margin-top:20px;border-left:2px solid var(--line);padding-left:24px}
-.tl div{position:relative;padding-bottom:18px}
-.tl div::before{content:"";position:absolute;left:-31px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--y);box-shadow:0 0 0 4px var(--ys)}
-.tl b{display:block;color:var(--k)}
-.tl span{font-size:14.5px;color:var(--mu)}
-/* precios */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-.pl{border:1px solid var(--line);border-radius:14px;padding:22px}
-.pl.rec{border:2px solid var(--y);box-shadow:0 0 0 5px var(--ys);position:relative}
-.pl.rec::before{content:"RECOMENDADO";position:absolute;top:-12px;left:20px;background:var(--y);color:var(--k);font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:5px}
-.pl small{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--mu);text-transform:uppercase}
-.pl h3{font-size:19px;margin:6px 0 10px}
-.pl .p{font-size:28px;font-weight:800;color:var(--k);line-height:1.1}
-.pl .p span{font-size:13px;color:var(--mu);font-weight:600}
-.pl .s{font-size:13px;color:var(--mu);margin-top:4px}
-.pl ul.ck li{font-size:13.5px;padding:4px 0 4px 28px}
-.pl ul.ck li::before{top:5px}
-.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px;margin-top:20px;font-size:14px}
-.terms div{padding-left:14px;border-left:3px solid var(--y)}
-.terms b{color:var(--k)}
-/* cierre */
-.close{margin:60px 0 0;background:var(--k);color:#fff;border-radius:16px;padding:40px 44px;display:flex;justify-content:space-between;align-items:center;gap:30px}
-.close h2{color:#fff;margin:0 0 8px;font-size:38px}
-.close h2 em{font-style:normal;color:var(--y)}
-.close p{color:#C9CCD2;margin:0}
-.close .c{background:#fff;color:var(--k);border-radius:12px;padding:18px 22px;min-width:260px;font-size:14px}
-.close .c b{display:block;font-size:17px}
-footer{padding:30px 0 50px;font-size:12px;color:var(--mu);text-align:center}
-@media print{
-  section,.prod,.flow,.plans,.calc,.law,.close{break-inside:avoid}
-  .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .pb{break-before:page}
-}
-@media (max-width:760px){
-  .page{padding:0 16px}.cover h1{font-size:42px}
-  .probs,.flow,.prod,.law,.plans,.terms{grid-template-columns:1fr}
-  .prod.rev > :first-child{order:0}.st{border-right:0;border-bottom:1px solid var(--line)}
-  .close{flex-direction:column;align-items:flex-start;padding:28px}
-}
+.dim{color:var(--dim)}
+
+/* portada */
+.cover{background:var(--gris);position:relative;overflow:hidden}
+.cover .page{padding-top:40px;padding-bottom:54px;position:relative}
+.flor{position:absolute;right:-90px;top:-60px;width:460px;height:460px;color:var(--caoba);opacity:.07}
+.ctop{display:flex;justify-content:space-between;align-items:center}
+.ctop .date{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.cover h1{font-size:68px;line-height:1;margin:64px 0 20px;max-width:12ch}
+.cover .lead{font-size:18px;color:var(--dim);max-width:600px;line-height:1.6}
+.cover .lead strong{color:var(--tx)}
+.facts{display:flex;margin-top:34px;border:1px solid #BDB5AA;background:#E4E0DB}
+.facts div{flex:1;padding:13px 18px;border-right:1px solid #CBC4BA;font-size:12px;color:var(--dim)}
+.facts div:last-child{border:0}
+.facts i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.facts b{font-size:14px;color:var(--tx)}
+.shot{width:100%;display:block;border:1px solid var(--line);box-shadow:0 18px 44px rgba(17,17,15,.14)}
+.cover .shot{margin-top:34px}
+
+/* secciones */
+section{padding-top:58px}
+.sh{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:22px}
+.sh h2{font-size:42px;line-height:1.05;margin-top:8px}
+.sh p{margin:10px 0 0;color:var(--dim);max-width:640px}
+.quote{border-left:3px solid var(--oro);background:var(--soft);padding:16px 22px;font-family:var(--display);font-size:22px;line-height:1.35;color:var(--tx);margin:22px 0 0}
+
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.cols3>div{padding:20px;border-right:1px solid var(--line-soft)}
+.cols3>div:last-child{border:0}
+.tag{display:inline-block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--caoba);margin-bottom:8px}
+.cols3 p{font-size:13.5px;color:var(--dim);margin:0}
+
+.flow .num{font-family:var(--display);font-size:46px;line-height:1;color:var(--caoba);font-weight:300}
+.flow h3{margin-top:6px}
+.flow .tool{display:inline-block;margin-top:12px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--caoba);color:#EFEDE9;padding:4px 9px}
+.loop{margin-top:12px;font-size:13px;color:var(--dim);text-align:center}
+.loop b{color:var(--tx)}
+
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.prod.rev>:first-child{order:2}
+ul.ck{list-style:none;margin:10px 0 0}
+ul.ck li{position:relative;padding:6px 0 6px 26px;font-size:13.8px;border-bottom:1px solid var(--line-soft)}
+ul.ck li:last-child{border:0}
+ul.ck li::before{content:"";position:absolute;left:2px;top:12px;width:12px;height:7px;border-left:1.6px solid var(--oro);border-bottom:1.6px solid var(--oro);transform:rotate(-45deg)}
+ul.ck li b{color:var(--tx)}
+.why{margin-top:18px;background:var(--soft);border:1px solid var(--line-soft);padding:14px 18px;font-size:13.5px;color:var(--dim)}
+.why i{font-style:normal;display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--caoba);font-weight:600;margin-bottom:4px}
+.cap{font-size:11.5px;color:var(--faint);margin-top:8px;text-align:center}
+.mt{margin-top:22px}
+
+.law{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.law>div{padding:16px 20px;border-bottom:1px solid var(--line-soft);border-right:1px solid var(--line-soft)}
+.law>div:nth-child(2n){border-right:0}
+.law>div:nth-last-child(-n+2){border-bottom:0}
+.law p{font-size:13.2px;color:var(--dim);margin:0}
+.small{font-size:12px;color:var(--faint);margin-top:12px}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:var(--soft)}
+.metrics div{padding:18px;border-right:1px solid var(--line-soft)}
+.metrics div:last-child{border:0}
+.metrics .num{font-family:var(--display);font-size:30px;color:var(--caoba);line-height:1}
+.metrics p{font-size:12.8px;color:var(--dim);margin:8px 0 0}
+
+.tl{border-left:1px solid var(--line);margin-left:6px;padding-left:24px}
+.tl div{position:relative;padding-bottom:16px}
+.tl div::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;background:var(--oro);transform:rotate(45deg)}
+.tl b{display:block;font-size:14px}
+.tl span{font-size:13.5px;color:var(--dim)}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.pl{padding:22px 20px;border-right:1px solid var(--line-soft)}
+.pl:last-child{border:0}
+.pl .tn{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--dim)}
+.pl h3{font-size:15px;margin:6px 0 12px}
+.pl .p{font-family:var(--display);font-size:38px;line-height:1;font-weight:400}
+.pl .p small{font-family:var(--ui);font-size:12px;color:var(--dim);font-weight:300}
+.pl .s{font-size:12px;color:var(--faint);margin:6px 0 10px}
+.pl ul.ck li{font-size:12.8px}
+.pl.rec{background:var(--caoba);color:#EFEDE9}
+.pl.rec .tn,.pl.rec h3,.pl.rec .s,.pl.rec .p small,.pl.rec ul.ck li,.pl.rec ul.ck li b{color:#EFEDE9}
+.pl.rec ul.ck li{border-color:rgba(239,237,233,.18)}
+.badge{display:inline-block;background:var(--oro);color:var(--negro);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:3px 9px;margin-bottom:10px}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-top:22px}
+.terms div{font-size:13.2px;color:var(--dim);padding-left:14px;border-left:2px solid var(--oro)}
+.terms b{color:var(--tx)}
+
+.close{margin-top:58px;background:var(--negro);color:#D7D2CB;padding:40px 44px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.close h2{color:#EFEDE9;font-size:40px;line-height:1.05}
+.close h2 em{color:var(--oro)}
+.close p{color:#9A938A;margin:8px 0 0}
+.card{border:1px solid #312D29;background:#1A1917;padding:18px 22px;font-size:13px;line-height:1.75;min-width:280px}
+.card .brand{margin-bottom:12px}
+.card .wm b{color:#EFEDE9}
+.card strong{color:#EFEDE9;font-size:14px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);margin-top:40px;padding:20px 0 40px;font-size:11px;color:var(--faint)}
+@media print{section,.prod,.cols3,.plans,.law,.metrics,.close,.tl div{break-inside:avoid}.pb{break-before:page}}
+@media (max-width:760px){.page{padding:0 16px}.cover h1{font-size:44px}.cols3,.prod,.law,.plans,.terms,.metrics,.close{grid-template-columns:1fr}.prod.rev>:first-child{order:0}.facts{flex-direction:column}}
 </style></head><body>
 
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="bs" viewBox="0 0 24 24"><path d="M6.6 2.6v18.8" stroke="currentColor" stroke-width="1.5" fill="none"/><text x="13.2" y="18.4" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="19" font-weight="500" fill="currentColor">B</text></symbol></defs></svg>
+
 <div class="cover"><div class="page">
- <div class="from"><span>Propuesta preparada por <b>BlackScale</b></span><span>Octubre de 2026</span></div>
- <h1 class="d">Más partidos en sus canchas,<br><em>todas las semanas</em></h1>
- <p class="lead">Propuesta para <b>Canchas Confort</b>: un sistema para que los equipos lo encuentren en Google, reserven solos en un minuto y <b>vuelvan a jugar</b> una y otra vez.</p>
- <div class="meta"><div>Preparado para<b>Canchas Confort</b></div><div>Solución<b>Agenda + sitio web</b></div><div>Puesta en marcha<b>72 horas a 10 días</b></div></div>
- <img class="hero-img" src="1-agenda-hoy.png" alt="Agenda de canchas de Canchas Confort">
+ <svg class="flor" viewBox="0 0 400 400" fill="none" aria-hidden="true"><path d="M200 20c-70 60-140 110-140 190 0 60 46 100 100 100s100-40 100-100c0-80-70-130-140-190" stroke="currentColor" stroke-width="1.1"/><ellipse cx="200" cy="200" rx="150" ry="92" transform="rotate(-28 200 200)" stroke="currentColor" stroke-width="1.1"/><ellipse cx="200" cy="200" rx="150" ry="92" transform="rotate(28 200 200)" stroke="currentColor" stroke-width="1.1"/></svg>
+ <div class="ctop"><div class="brand"><span class="mark"><svg><use href="#bs"/></svg></span><span class="wm"><b>BlackScale</b><span>Consulting S.A.S.</span></span></div><span class="date">Propuesta comercial · Octubre 2026</span></div>
+ <p class="eyebrow" style="margin-top:60px">Preparada para Canchas Confort</p>
+ <h1 style="margin-top:16px">Más equipos jugando en sus canchas, <em>todas las semanas</em></h1>
+ <p class="lead">Un sistema para que los equipos lo <strong>encuentren en Google</strong>, <strong>reserven solos</strong> en un minuto y <strong>vuelvan a jugar</strong> una y otra vez, cuidando sus datos como exige la ley.</p>
+ <div class="facts"><div><i>Cliente</i><b>Canchas Confort</b></div><div><i>Solución</i><b>Agenda + sitio web</b></div><div><i>Puesta en marcha</i><b>72 horas a 10 días</b></div></div>
+ <img class="shot" src="1-agenda-hoy.png" alt="Agenda de Canchas Confort">
 </div></div>
 
 <div class="page">
 
 <section>
- <div class="n">01 · Lo que vemos hoy</div>
- <h2 class="d">Usted ya tiene clientes. El reto es que vuelvan y que lleguen nuevos.</h2>
- <p class="mu">En la mayoría de canchas que visitamos pasa lo mismo, y no es por falta de buen servicio:</p>
- <div class="probs">
-  <div class="prob"><i>Reservas por chat</i><p>Cada reserva es una conversación de WhatsApp. Si nadie contesta rápido, el equipo se va a otra cancha.</p></div>
-  <div class="prob"><i>Clientes que se pierden</i><p>Un equipo deja de venir y nadie se da cuenta. Sus datos están regados en chats, sin forma de volverlos a invitar.</p></div>
-  <div class="prob"><i>Invisibles en Google</i><p>Quien busca "canchas sintéticas cerca de mí" encuentra a la competencia. Instagram no aparece bien en esas búsquedas.</p></div>
+ <div class="sh"><p class="eyebrow">01 · Lo que vemos hoy</p><h2>Usted ya tiene clientes. El reto es que <em>vuelvan</em> y que lleguen nuevos.</h2><p>En la mayoría de canchas que visitamos pasa lo mismo, y no es por falta de buen servicio.</p></div>
+ <div class="cols3">
+  <div><span class="tag">Reservas por chat</span><p>Cada reserva es una conversación de WhatsApp. Si nadie contesta rápido, el equipo se va a otra cancha.</p></div>
+  <div><span class="tag">Clientes que se pierden</span><p>Un equipo deja de venir y nadie se da cuenta. Sus datos están regados en chats, sin forma de volver a invitarlo.</p></div>
+  <div><span class="tag">Invisibles en Google</span><p>Quien busca "canchas sintéticas cerca de mí" encuentra a la competencia. Instagram no aparece bien en esas búsquedas.</p></div>
  </div>
- <div class="quote">Conseguir un cliente nuevo cuesta 5 veces más que hacer volver a uno que ya jugó en sus canchas. Por eso la propuesta empieza por los clientes que usted ya tiene.</div>
+ <p class="quote">Hacer volver a un jugador que ya conoce sus canchas es más fácil y más barato que conseguir uno nuevo. Por eso la propuesta empieza por los clientes que usted ya tiene.</p>
 </section>
 
 <section>
- <div class="n">02 · La idea</div>
- <h2 class="d">Un círculo que se alimenta solo</h2>
- <p class="mu">No le vendemos programas sueltos. Le armamos un camino completo para cada jugador: desde que lo busca en Google hasta que se vuelve cliente fijo.</p>
- <div class="flow">
-  <div class="st"><div class="k">1</div><h3>Lo encuentran</h3><p>Aparece en Google y en Maps cuando buscan canchas en su zona, con fotos, reseñas y precios claros.</p><span class="tool">Sitio web + Google</span></div>
-  <div class="st"><div class="k">2</div><h3>Reservan solos</h3><p>Ven los horarios libres y apartan en 1 minuto, a cualquier hora. Al reservar autorizan el uso de sus datos.</p><span class="tool">Agenda en línea</span></div>
-  <div class="st"><div class="k">3</div><h3>Vuelven a jugar</h3><p>Recordatorios, ofertas para quien dejó de venir, cumpleaños y torneos. Todo por WhatsApp y automático.</p><span class="tool">Reactivación</span></div>
+ <div class="sh"><p class="eyebrow">02 · La idea</p><h2>Un círculo que se <em>alimenta solo</em></h2><p>No le vendemos programas sueltos. Le armamos un camino completo para cada jugador: desde que lo busca en Google hasta que se vuelve cliente fijo.</p></div>
+ <div class="cols3 flow">
+  <div><div class="num">1</div><h3>Lo encuentran</h3><p>Aparece en Google y Maps cuando buscan canchas en su zona, con fotos, reseñas y precios claros.</p><span class="tool">Sitio web + Google</span></div>
+  <div><div class="num">2</div><h3>Reservan solos</h3><p>Ven los horarios libres y apartan en un minuto, a cualquier hora. Al reservar autorizan el uso de sus datos.</p><span class="tool">Agenda en línea</span></div>
+  <div><div class="num">3</div><h3>Vuelven a jugar</h3><p>Recordatorios, invitaciones a quien dejó de venir, cumpleaños y torneos, por WhatsApp y de forma automática.</p><span class="tool">Reactivación</span></div>
  </div>
- <p class="loop">↻ Cada jugador que vuelve deja una <b>reseña en Google</b>, y esa reseña trae a los siguientes equipos.</p>
+ <p class="loop">↻ Cada jugador que vuelve puede dejar una <b>reseña en Google</b>, y esas reseñas ayudan a que lo encuentren los siguientes equipos.</p>
 </section>
 
 <section class="pb">
- <div class="n">03 · Lo que incluye</div>
- <h2 class="d">Agenda de canchas</h2>
+ <div class="sh"><p class="eyebrow">03 · Lo que incluye</p><h2>Agenda de <em>canchas</em></h2></div>
  <div class="prod">
   <div>
-   <p>El tablero del negocio. Usted ve en una sola pantalla qué cancha está ocupada, quién viene, quién pagó el anticipo y quién falta por confirmar.</p>
+   <p>El tablero del negocio. En una sola pantalla ve qué cancha está ocupada, quién viene, quién pagó el anticipo y quién falta por confirmar.</p>
    <ul class="ck">
     <li><b>Reserva en línea 24/7</b> con anticipo por Nequi, Daviplata o tarjeta.</li>
-    <li><b>Recordatorio por WhatsApp</b> el día del partido: menos canchas vacías por equipos que no llegan.</li>
+    <li><b>Recordatorio por WhatsApp</b> el día del partido.</li>
     <li><b>Horarios fijos</b> para empresas y equipos de cada semana.</li>
-    <li><b>Ficha de cada jugador y equipo:</b> cuántas veces ha jugado y cuánto ha dejado.</li>
-    <li><b>Reportes:</b> ocupación por cancha y por hora, horas muertas e ingresos.</li>
+    <li><b>Ficha de cada jugador y equipo</b> con su historial de reservas.</li>
+    <li><b>Reportes</b> de ocupación por cancha y por hora, horas muertas e ingresos.</li>
    </ul>
   </div>
-  <img src="3-reserva-y-whatsapp.png" alt="Reserva desde el celular y confirmación por WhatsApp">
+  <img class="shot" src="3-reserva-y-whatsapp.png" alt="Reserva desde el celular y confirmación por WhatsApp">
  </div>
- <div class="why"><b>¿Por qué ayuda a tener más clientes?</b> Porque nunca más se pierde una reserva por no contestar a tiempo, y porque cada reserva queda guardada como un cliente que usted puede volver a invitar.</div>
+ <div class="why"><i>Cómo le ayuda a tener más clientes</i>Ninguna reserva se pierde por no contestar a tiempo, y cada reserva queda guardada como un cliente al que puede volver a invitar.</div>
 </section>
 
 <section>
- <h2 class="d">Reactivación de jugadores</h2>
- <p>Esta es la parte que más plata le va a dejar. Todos los lunes, el sistema revisa quién lleva más de 30 días sin jugar y le envía una invitación personal por WhatsApp, con una oferta para que vuelva.</p>
- <div class="wide"><img src="2-reactivacion-clientes.png" alt="Pantalla de reactivación de jugadores"><p class="cap">La lista se ordena por lo que cada jugador ha gastado, para invitar primero a los más valiosos.</p></div>
- <ul class="ck" style="margin-top:16px">
-  <li><b>Jugadores inactivos:</b> "Hace rato no vemos a Los Halcones. El jueves tenemos cancha libre con 10% de descuento".</li>
-  <li><b>Equipos fijos que dejaron de venir:</b> el sistema le avisa apenas un equipo de cada semana falta dos veces.</li>
-  <li><b>Cumpleaños:</b> una hora de cancha con descuento para que celebren en Confort.</li>
-  <li><b>Horas muertas:</b> si el martes a las 5 p. m. está vacío, se invita a quien suele jugar a esa hora.</li>
+ <div class="sh"><h2>Reactivación de <em>jugadores</em></h2><p>Todas las semanas el sistema revisa quién lleva más de 30 días sin jugar y le envía una invitación personal por WhatsApp para que vuelva.</p></div>
+ <img class="shot" src="2-reactivacion-clientes.png" alt="Pantalla de reactivación de jugadores">
+ <p class="cap">La lista se ordena por historial de cada jugador, para invitar primero a los más frecuentes.</p>
+ <ul class="ck mt">
+  <li><b>Jugadores inactivos:</b> "Hace rato no vemos a Los Halcones. El jueves tenemos cancha libre y un descuento para ustedes".</li>
+  <li><b>Equipos fijos que dejaron de venir:</b> aviso apenas un equipo de cada semana falta dos veces.</li>
+  <li><b>Cumpleaños:</b> una invitación para celebrar jugando en Confort.</li>
+  <li><b>Horas muertas:</b> invitación a quien suele jugar en los horarios que quedan vacíos.</li>
   <li><b>Torneos:</b> aviso a todos los equipos que autorizaron recibir información.</li>
  </ul>
- <div class="why"><b>¿Por qué ayuda a tener más clientes?</b> Porque convierte su lista de jugadores en reservas. Usted no tiene que acordarse de nadie ni escribir uno por uno: el sistema lo hace y usted ve cuántos volvieron y cuánta plata trajeron.</div>
+ <div class="why"><i>Cómo le ayuda a tener más clientes</i>Convierte su lista de jugadores en invitaciones constantes. Usted no tiene que acordarse de nadie ni escribir uno por uno, y cada mes ve cuántos respondieron y volvieron.</div>
 </section>
 
 <section class="pb">
- <h2 class="d">Sitio web y Google</h2>
+ <div class="sh"><h2>Sitio web y <em>Google</em></h2></div>
  <div class="prod rev">
   <div>
-   <p>Una página profesional con su marca, hecha para verse bien en el celular y para aparecer en Google cuando alguien busca canchas en su zona.</p>
+   <p>Una página profesional con su marca, pensada para verse bien en el celular y para aparecer en Google cuando buscan canchas en su zona.</p>
    <ul class="ck">
-    <li><b>Botón "Reservar cancha"</b> conectado a la agenda: el visitante reserva sin salir de la página.</li>
-    <li><b>Canchas, tarifas, torneos, escuela y eventos</b> explicados con fotos.</li>
-    <li><b>Perfil de Google Business optimizado:</b> fotos, horario, botón de reservar y cómo llegar.</li>
-    <li><b>Reseñas en Google:</b> después de cada partido se pide una reseña a los jugadores satisfechos.</li>
-    <li><b>Formulario de contacto</b> para empresas, cumpleaños y torneos.</li>
+    <li><b>Botón "Reservar cancha"</b> conectado a la agenda.</li>
+    <li><b>Canchas, tarifas, torneos, escuela y eventos</b> con fotos.</li>
+    <li><b>Perfil de Google Business optimizado:</b> fotos, horario, reservas y cómo llegar.</li>
+    <li><b>Reseñas en Google:</b> después de cada partido se invita a dejar una reseña.</li>
+    <li><b>Formulario</b> para empresas, cumpleaños y torneos.</li>
    </ul>
   </div>
-  <img src="4-sitio-web-portada.png" alt="Sitio web de Canchas Confort">
+  <img class="shot" src="4-sitio-web-portada.png" alt="Sitio web de Canchas Confort">
  </div>
- <div class="wide"><img src="5-google.png" alt="Cómo aparecería en una búsqueda"><p class="cap">Simulación de cómo aparecería Canchas Confort en una búsqueda local.</p></div>
- <div class="why"><b>¿Por qué ayuda a tener más clientes?</b> Porque hoy los equipos nuevos buscan en Google antes de escribir. Quien aparece primero, con buenas reseñas y botón de reservar, se queda con el partido.</div>
+ <img class="shot mt" src="5-google.png" alt="Simulación de búsqueda">
+ <p class="cap">Simulación ilustrativa de cómo podría verse Canchas Confort en una búsqueda local.</p>
+ <div class="why"><i>Cómo le ayuda a tener más clientes</i>Hoy los equipos nuevos buscan en Google antes de escribir. Un negocio con página propia, perfil completo, buenas reseñas y botón de reservar tiene más posibilidades de quedarse con ese partido.</div>
 </section>
 
 <section>
- <div class="n">04 · Datos personales</div>
- <h2 class="d">Todo dentro de la Ley 1581 de 2012</h2>
- <p class="mu">Escribirle a los clientes solo funciona si se hace bien. El sistema está pensado para que Canchas Confort cumpla la ley de protección de datos (Habeas Data) sin esfuerzo:</p>
+ <div class="sh"><p class="eyebrow">04 · Datos personales</p><h2>Dentro de la <em>Ley 1581 de 2012</em></h2><p>Escribirle a los clientes solo funciona si se hace bien. El sistema está pensado para que Canchas Confort cumpla con la protección de datos personales (Habeas Data).</p></div>
  <div class="law">
-  <div><i>✓</i><p><b>Autorización al reservar</b>El jugador marca una casilla clara, con enlace a la política de datos. Las promociones tienen su propia autorización.</p></div>
-  <div><i>✓</i><p><b>Prueba de cada autorización</b>Se guarda la fecha, el canal y la finalidad, por si alguien la pide.</p></div>
-  <div><i>✓</i><p><b>Solo a quien autorizó</b>Quien no autorizó nunca recibe mensajes. El sistema lo excluye automáticamente.</p></div>
-  <div><i>✓</i><p><b>Baja en un mensaje</b>Cada mensaje permite responder "NO", y el retiro queda registrado al instante.</p></div>
+  <div><h3>Autorización al reservar</h3><p>Casilla clara con enlace a la política de datos. Las promociones tienen su propia autorización.</p></div>
+  <div><h3>Prueba de cada autorización</h3><p>Se guarda fecha, canal y finalidad, por si alguien la solicita.</p></div>
+  <div><h3>Solo a quien autorizó</h3><p>Quien no autorizó nunca recibe mensajes; el sistema lo excluye automáticamente.</p></div>
+  <div><h3>Baja con un mensaje</h3><p>Cada mensaje permite responder "NO" y el retiro queda registrado al instante.</p></div>
  </div>
- <p class="small">Incluimos la plantilla de Política de Tratamiento de Datos para Canchas Confort y la atención de solicitudes de consulta, corrección o eliminación de datos.</p>
-</section>
-
-<section class="pb">
- <div class="n">05 · Los números</div>
- <h2 class="d">¿Cuánto le puede dejar?</h2>
- <p class="mu">Una cuenta conservadora con valores de ejemplo. La ajustamos con sus números reales en la primera reunión.</p>
- <div class="calc"><table>
-  <tr><td>Equipos que vuelven al mes gracias a la reactivación (4 equipos × 1 partido)</td><td>+ $360.000</td></tr>
-  <tr><td>Reservas que hoy se pierden por no contestar a tiempo (3 al mes)</td><td>+ $270.000</td></tr>
-  <tr><td>Partidos que no se caen gracias al recordatorio (2 al mes)</td><td>+ $180.000</td></tr>
-  <tr><td>Equipos nuevos que llegan desde Google (3 al mes)</td><td>+ $270.000</td></tr>
-  <tr class="t"><td>Ingreso adicional estimado al mes</td><td>$1.080.000</td></tr>
- </table></div>
- <p class="small">Cálculo con una hora de fútbol 5 a $90.000. Un solo equipo fijo recuperado (4 partidos al mes) ya cubre la mensualidad completa.</p>
+ <p class="small">Incluimos la plantilla de Política de Tratamiento de Datos para Canchas Confort y el procedimiento para atender consultas, correcciones o eliminación de datos.</p>
 </section>
 
 <section>
- <div class="n">06 · Cómo lo ponemos en marcha</div>
- <h2 class="d">Usted no tiene que aprender nada difícil</h2>
+ <div class="sh"><p class="eyebrow">05 · Seguimiento</p><h2>Cómo medimos <em>los resultados</em></h2><p>No le prometemos cifras. Le mostramos cada mes, con sus propios datos, qué está funcionando.</p></div>
+ <div class="metrics">
+  <div><div class="num">I</div><p>Reservas que llegaron en línea y a qué horas.</p></div>
+  <div><div class="num">II</div><p>Jugadores invitados a volver y cuántos reservaron de nuevo.</p></div>
+  <div><div class="num">III</div><p>Visitas a la página y búsquedas en Google.</p></div>
+  <div><div class="num">IV</div><p>Ocupación por cancha y horas que siguen vacías.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="sh"><p class="eyebrow">06 · Puesta en marcha</p><h2>Usted no tiene que <em>aprender nada difícil</em></h2></div>
  <div class="tl">
-  <div><b>Día 1 · Reunión de 30 minutos</b><span>Nos cuenta canchas, horarios, tarifas y cómo maneja hoy las reservas.</span></div>
+  <div><b>Día 1 · Reunión de 30 minutos</b><span>Canchas, horarios, tarifas y cómo maneja hoy las reservas.</span></div>
   <div><b>Días 2 y 3 · Agenda lista</b><span>Cargamos todo con su marca y le entregamos el link de reservas para Instagram y WhatsApp.</span></div>
-  <div><b>Día 3 · Capacitación de 1 hora</b><span>A usted y a quien atienda la cancha. Queda funcionando ese mismo día.</span></div>
+  <div><b>Día 3 · Capacitación de una hora</b><span>A usted y a quien atienda la cancha. Queda funcionando ese mismo día.</span></div>
   <div><b>Días 4 a 10 · Sitio web y Google</b><span>Publicamos la página, optimizamos su perfil de Google y activamos la reactivación.</span></div>
-  <div><b>Cada mes · Informe de resultados</b><span>Cuántas reservas llegaron en línea, cuántos jugadores volvieron y cuánta plata trajeron.</span></div>
+  <div><b>Cada mes · Informe de seguimiento</b><span>Los indicadores de la sección anterior, explicados en una reunión corta.</span></div>
  </div>
 </section>
 
 <section class="pb">
- <div class="n">07 · Inversión</div>
- <h2 class="d">Planes para Canchas Confort</h2>
+ <div class="sh"><p class="eyebrow">07 · Inversión</p><h2>Planes para <em>Canchas Confort</em></h2></div>
  <div class="plans">
-  <div class="pl"><small>Opción 1</small><h3>Agenda + Reactivación</h3><div class="p">$249.000 <span>/ mes</span></div><div class="s">Implementación $600.000</div>
-   <ul class="ck"><li>Reserva en línea y anticipos</li><li>Recordatorios por WhatsApp</li><li>Reactivación automática</li><li>Reportes mensuales</li></ul></div>
-  <div class="pl rec"><small>Opción 2</small><h3>Paquete completo</h3><div class="p">$329.000 <span>/ mes</span></div><div class="s">Implementación $1.500.000</div>
+  <div class="pl"><span class="tn">Opción 1</span><h3>Agenda + Reactivación</h3><div class="p">$311.000 <small>/ mes</small></div><div class="s">Implementación $750.000</div>
+   <ul class="ck"><li>Reserva en línea y anticipos</li><li>Recordatorios por WhatsApp</li><li>Reactivación automática</li><li>Informe mensual</li></ul></div>
+  <div class="pl rec"><span class="badge">Recomendado</span><br><span class="tn">Opción 2</span><h3>Paquete completo</h3><div class="p">$411.000 <small>/ mes</small></div><div class="s">Implementación $1.875.000</div>
    <ul class="ck"><li>Todo lo de la opción 1</li><li>Sitio web profesional</li><li>Google Business y reseñas</li><li>SEO local para su zona</li></ul></div>
-  <div class="pl"><small>Opción 3</small><h3>Sitio web + Google</h3><div class="p">$99.000 <span>/ mes</span></div><div class="s">Implementación $1.200.000</div>
+  <div class="pl"><span class="tn">Opción 3</span><h3>Sitio web + Google</h3><div class="p">$124.000 <small>/ mes</small></div><div class="s">Implementación $1.500.000</div>
    <ul class="ck"><li>Sitio web profesional</li><li>Google Business y reseñas</li><li>SEO local para su zona</li><li>Hosting y mantenimiento</li></ul></div>
  </div>
  <div class="terms">
-  <div><b>Garantía de 60 días.</b> Si en ese tiempo no recupera al menos lo que cuesta, el tercer mes no se cobra.</div>
   <div><b>Plan anual.</b> Paga 10 meses y recibe 12. La implementación queda con 50% de descuento.</div>
   <div><b>Sin comisiones.</b> No cobramos porcentaje por reserva ni por venta.</div>
-  <div><b>Soporte por WhatsApp.</b> Con una persona real, en horario comercial.</div>
+  <div><b>Soporte por WhatsApp</b> con una persona real, en horario comercial.</div>
+  <div><b>Factura electrónica</b> de BlackScale Consulting S.A.S.</div>
  </div>
  <p class="small">Valores en pesos colombianos, más IVA. Permanencia mínima de 3 meses. Dominio propio (.co o .com) al costo.</p>
 </section>
 
 <div class="close">
- <div><h2 class="d">¿Arrancamos <em>esta semana?</em></h2><p>En 72 horas sus clientes ya pueden reservar en línea.</p></div>
- <div class="c"><b>Daniel Acosta</b>BlackScale<br>WhatsApp +57 313 666 2777<br>daniel.acosta@blackscale.consulting</div>
+ <div><h2>¿Arrancamos <em>esta semana?</em></h2><p>En 72 horas sus clientes ya pueden reservar en línea.</p></div>
+ <div class="card"><div class="brand"><span class="mark" style="width:34px;height:34px"><svg><use href="#bs"/></svg></span><span class="wm"><b>BlackScale</b><span>Consulting S.A.S.</span></span></div><strong>Daniel Acosta</strong><br>WhatsApp +57 313 666 2777<br>daniel.acosta@blackscale.consulting</div>
 </div>
-<footer>Las pantallas de esta propuesta son una muestra con datos de ejemplo. Al implementar se usan las canchas, precios y fotos reales de Canchas Confort.</footer>
+<div class="foot"><div class="brand"><span class="mark" style="width:28px;height:28px"><svg style="width:16px;height:16px"><use href="#bs"/></svg></span><span class="wm"><b style="font-size:11px">BlackScale</b><span>Consulting S.A.S.</span></span></div><span>Las pantallas son una muestra con datos de ejemplo. Al implementar se usan las canchas, precios y fotos reales de Canchas Confort. Documento confidencial.</span></div>
 </div>
 </body></html>
